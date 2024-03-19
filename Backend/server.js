@@ -11,12 +11,30 @@ async function connect() {
     await mongoose.connect(URI);
     console.log("Connected to MongoDB");
   } catch (error) {
-    console.log(error);
+    console.log(`Error connecting to MongoDB:', error.message`);
   }
 }
 
 connect();
 
+app.get('/', (req, res) => {
+  const user = new User({
+    username: 'deol',
+    fullName: 'Joe Doe',
+    email: 'user@example.com',
+    password: 'password',
+    gender: 'male',
+    dateOfBirth: '1990-01-01',
+    country: 'Nigeria',
+    currency: 'USD',
+    language: 'English',
+    rating: 5,
+  });
+  user.save();
+});
+
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
+
+export default app;

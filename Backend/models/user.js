@@ -7,12 +7,9 @@ const userSchema = new Schema ({
     password: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     gender: { type: String, required: true },
-    dateOfBirth: { type: Date, required: true },
     country: { type: String, required: true },
     currency: { type: String, required: true },
     language: { type: String, required: true },
-    reviews: [{ type: String }],
-    ratings: { type: Number, default: 0 },
     preferences: {
         favoriteDestinations: [{ type: String }],
         interests: [{ type: String }]

@@ -6,7 +6,6 @@ const reviewSchema = new Schema({
     destination: { type: String, required: true }, // Destination being reviewed
     rating: { type: Number, required: true }, // Rating given by the user
     comment: { type: String }, // Optional comment by the user
-    createdAt: { type: Date, default: Date.now }, // Timestamp of when the review was created
 });
 
 const Review = model("Review", reviewSchema);
