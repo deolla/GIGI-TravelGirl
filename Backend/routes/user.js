@@ -1,7 +1,7 @@
 // This is a route to handle user related requests.
 import app from '../server';
 import User from '../models/user';
-import mongoose from 'mongoose';
+import { getUser } from '../controllers/UserController';
 
 const router = app.Router();
 
