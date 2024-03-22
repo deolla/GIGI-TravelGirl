@@ -2,9 +2,19 @@ import BoatCruise from '../../assets/boatcruise.jpg';
 import IvoryCoast from '../../assets/ivorycoast.jpg';
 import Telemoundoaf from '../../assets/telemoundoaf.jpg';
 import LocationsCard from './LocationsCard';
+import { useEffect } from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 function Locations() {
+    useEffect(() => {
+        AOS.init({
+          disable: "phone",
+          duration: 700,
+          easing: "fade-up",
+        });
+      }, []);
 
     const locationsdata = [
         {
@@ -61,7 +71,7 @@ function Locations() {
 
         <div className="container">
             <h1 className=" font-bold py-2 pl-2 my-8 text-3xl border-l-8
-             border-secondary/50 ">
+             border-secondary/50" data-aos="fade-up">
                 Upcoming Vacations</h1>
                 <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4'>
                     {
