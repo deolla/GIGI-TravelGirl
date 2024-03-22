@@ -1,6 +1,10 @@
-import Homevideo from '../assets/homevideo.mp4'
-import HeroSection from '../components/HeroSection/HeroSection'
-import Locations from '../components/Locations/Locations'
+import Homevideo from '../assets/homevideo.mp4';
+import HeroSection from '../components/HeroSection/HeroSection';
+import Locations from '../components/Locations/Locations';
+import ExploreAfrica from '../components/ExploreAfrica/ExploreAfrica';
+import ExploreNigeria from '../components/ExploreAfrica/ExploreNigeria';
+import Explore from '../components/Explore/Explore';
+import Testimonials from '../components/Testimonials/Testimonials';
 
 function Home() {
   return (
@@ -14,6 +18,10 @@ function Home() {
         <HeroSection />
       </div>
       <Locations />
+      <ExploreAfrica />
+      <ExploreNigeria />
+      <Explore />
+      <Testimonials />
     </div>
     </>
   )
