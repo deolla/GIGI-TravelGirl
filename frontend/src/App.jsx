@@ -1,8 +1,10 @@
 import { BrowserRouter, Route, Routes  } from 'react-router-dom';
 import AppLayout from './pages/AppLayout';
 import HomePage from './pages/HomePage';
-// import AboutPage from './pages/AboutPage';
-// import Locations from './pages/Locations';
+import AboutPage from './pages/AboutPage';
+import Locations from './pages/Locations';
+import FlightsPage from './pages/FlightBooking';
+
 // import PageNotFound from './pages/PageNotFound';
 
 
@@ -13,9 +15,10 @@ function App() {
     <Routes>
     <Route path="/" element={<AppLayout />}>
         <Route index element={<HomePage />} />
-        {/* <Route path="Locations" element={<Locations />} />
+         <Route path="Locations" element={<Locations />} />
         <Route path="/about" element={<AboutPage />} />
-        <Route path="*" element={<PageNotFound />} /> */}
+        <Route path="/flight" element={<FlightsPage/>}/>
+        {/* <Route path="*" element={<PageNotFound />} />  */}
     </Route>
     </Routes>
     </BrowserRouter>
