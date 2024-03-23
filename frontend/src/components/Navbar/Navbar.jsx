@@ -3,6 +3,7 @@ import Logo from "../../assets/logo.jpg";
 import { FaCaretDown } from "react-icons/fa";
 import { useState } from "react";
 import { HiMenuAlt1, HiMenuAlt3 } from  "react-icons/hi";
+import SignupForm from '../Authentication/SignupForm';
 
 const DropdownLinks = [
   {
@@ -27,6 +28,13 @@ function Navbar() {
   const toggleMenu = () => {
     setShowMenu(!showMenu);
   };
+
+  const [showSignupForm, setShowSignupForm] = useState(false);
+
+    // Function to toggle the visibility of the Signup form
+    const toggleSignupForm = () => {
+        setShowSignupForm(!showSignupForm);
+    };
 
   
   return (
@@ -108,10 +116,7 @@ function Navbar() {
           </div>
           {/* Login and signup buttons */}
           <div className="flex items-center gap-4">
-          <button className="bg-gradient-to-r from-primary to-secondary hover:bg-bg-gradient-to-r hover:from-secondary hover:bg-primary transition-all duration-500 text-white px-3 py-1 rounded-full">
-            Login
-            </button>
-            <button className="bg-gradient-to-r from-primary to-secondary hover:bg-bg-gradient-to-r hover:from-secondary hover:bg-primary transition-all duration-500 text-white px-3 py-1 rounded-full">
+            <button onClick={toggleSignupForm} className="bg-primary  text-white px-3 py-1 rounded-full">
             signUp
             </button>
   
@@ -130,6 +135,7 @@ function Navbar() {
         </div>
 
       </div>
+      {showSignupForm && <SignupForm />}
 {/* 
       <ResponsiveMenu setShowMenu={setShowMenu} showMenu={showMenu} /> */}
       
