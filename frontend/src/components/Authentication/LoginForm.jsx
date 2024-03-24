@@ -71,7 +71,7 @@ function LoginForm({ onToggleForm }) {
             </div>
 
             <div className='w-full flex items-center justify-center'>
-            <p className='text-[#060606] text-sm font-normal'>Don't have an account yet? <Link to="#" onClick={onToggleForm} className='text-primary font-semibold underline underline-offset-2 cursor-pointer'>Sign Up</Link></p>
+            <p className='text-[#060606] text-sm font-normal'>Don't have an account yet? <Link to="/signup" onClick={onToggleForm} className='text-primary font-semibold underline underline-offset-2 cursor-pointer'>Sign Up</Link></p>
             </div>
         </div>
     </div>
