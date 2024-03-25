@@ -25,9 +25,11 @@ mongoose.connection.on("error", (error) => {
 
 
 // middleware routes
+app.use(express.json());
 app.use("/user", userRoute);
 app.use("/location", LocationRoute);
-app.use("/auth", AuthRoute);
+app.use("/api", AuthRoute);
+
 
 
 // Listen to port 5000
