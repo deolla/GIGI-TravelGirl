@@ -3,7 +3,7 @@ import Logo from "../../assets/logo.jpg";
 import { FaCaretDown } from "react-icons/fa";
 import { useState } from "react";
 import { HiMenuAlt1, HiMenuAlt3 } from  "react-icons/hi";
-import SignupForm from '../Authentication/SignupForm';
+// import SignupForm from '../Authentication/SignupForm';
 
 const DropdownLinks = [
   {
@@ -110,14 +110,14 @@ function Navbar() {
                   </ul>
                 </div>
               </li>
-
-
             </ul>
           </div>
           {/* Login and signup buttons */}
           <div className="flex items-center gap-4">
             <button onClick={toggleSignupForm} className="bg-primary  text-white px-3 py-1 rounded-full">
-            signUp
+            <Link to='/signup'>
+              signUp
+            </Link>
             </button>
   
             {/* hamburger menu for smaller screens */}
@@ -135,7 +135,7 @@ function Navbar() {
         </div>
 
       </div>
-      {showSignupForm && <SignupForm />}
+      {/* {showSignupForm && <SignupForm />} */}
 {/* 
       <ResponsiveMenu setShowMenu={setShowMenu} showMenu={showMenu} /> */}
       

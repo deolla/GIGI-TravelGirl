@@ -48,6 +48,7 @@ function SignupForm({ onToggleForm }) {
   <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
 </svg>
 
+
                     </div>
                     
                     <button type="submit" className='bg-primary text-white py-2 rounded-xl'>Sign Up</button>

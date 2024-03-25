@@ -16,9 +16,7 @@ function LoginForm({ onToggleForm }) {
         });
       }, []);
 
-  return (
-    <>
-    <div className='bg-gray-50 min-h-screen flex items-center justify-center'>
+  return <div className='bg-gray-50 min-h-screen flex items-center justify-center'>
         {/* login container */}
         <div className='bg-gray-100 flex rounded-2xl shadow-lg max-w-3xl p-5'>
             {/* form section */}
@@ -66,6 +64,8 @@ function LoginForm({ onToggleForm }) {
                             </div>
                 
 
+            <div className='w-full flex items-center justify-center'>
+            <p className='text-[#060606] text-sm font-normal'>Don't have an account yet? <Link to="/signup" onClick={onToggleForm} className='text-primary font-semibold underline underline-offset-2 cursor-pointer'>Sign Up</Link></p>
             </div>
             {/* image section */}
             <div className='w-1/2 sm:block hidden relative'> {/* Added relative positioning */}
@@ -75,13 +75,12 @@ function LoginForm({ onToggleForm }) {
         <h2 className="text-white font-bold text-4xl my-4">Planning a trip?</h2>
         <p className="text-white text-xl font-normal">GIGI-TravelGirl got you covered</p> 
     </div>
-</div>
-        </div>
+    </div>
+    </div>
 
     </div>
-    </>
+    </div>
 
-  )
 }
 
 export default LoginForm
