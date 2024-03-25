@@ -16,12 +16,6 @@ function AppLayout() {
   return (
     <>
       <Navbar />
-      {showLoginForm ? (
-        <LoginForm onToggleForm={toggleLoginForm} />
-      ) : (
-        <SignupForm onToggleForm={toggleLoginForm} />
-      )}
-
       <main>
         <Outlet />
         <Footer />

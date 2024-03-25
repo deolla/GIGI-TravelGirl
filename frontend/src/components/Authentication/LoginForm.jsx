@@ -66,6 +66,8 @@ function LoginForm({ onToggleForm }) {
                             </div>
                 
 
+            <div className='w-full flex items-center justify-center'>
+            <p className='text-[#060606] text-sm font-normal'>Don't have an account yet? <Link to="/signup" onClick={onToggleForm} className='text-primary font-semibold underline underline-offset-2 cursor-pointer'>Sign Up</Link></p>
             </div>
             {/* image section */}
             <div className='w-1/2 sm:block hidden relative'> {/* Added relative positioning */}
