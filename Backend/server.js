@@ -4,11 +4,12 @@ import dotenv from "dotenv";
 import userRoute from "./routes/user.js";
 import AuthRoute from "./routes/auth.js";
 import LocationRoute from "./routes/location.js";
+import morgan from "morgan";
+import bodyParser from "body-parser";
 
 dotenv.config();
 const app = express();
 const port = 5000;
-
 
 async function connect() {
   try {
@@ -23,14 +24,13 @@ mongoose.connection.on("error", (error) => {
   console.log(`Error connecting to MongoDB:', ${error.message}`);
 });
 
-
 // middleware routes
-app.use(express.json());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(morgan("dev"));
 app.use("/user", userRoute);
 app.use("/location", LocationRoute);
 app.use("/api", AuthRoute);
-
-
 
 // Listen to port 5000
 app.listen(port, () => {
