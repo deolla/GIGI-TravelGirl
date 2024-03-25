@@ -6,10 +6,10 @@ const userSchema = new Schema ({
     fullName: { type: String, required: true },
     password: { type: String, required: true },
     email: { type: String, required: true, unique: true },
-    gender: { type: String, required: true },
-    country: { type: String, required: true },
-    currency: { type: String, required: true },
-    language: { type: String, required: true },
+    gender: { type: String},
+    country: { type: String},
+    currency: { type: String},
+    language: { type: String, },
     preferences: {
         favoriteDestinations: [{ type: String }],
         interests: [{ type: String }]
