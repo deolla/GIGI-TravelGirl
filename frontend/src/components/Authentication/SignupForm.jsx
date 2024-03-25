@@ -5,8 +5,6 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { Link } from 'react-router-dom';
 
-
-
 function SignupForm({ onToggleForm }) {
     useEffect(() => {
         AOS.init({
