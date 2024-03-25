@@ -3,7 +3,7 @@ import AppLayout from './pages/AppLayout';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import Locations from './pages/Locations';
-import PageNotFound from './pages/PageNotFound';
+// import PageNotFound from './pages/PageNotFound';
 
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
         <Route index element={<HomePage />} />
         <Route path="Locations" element={<Locations />} />
         <Route path="/about" element={<AboutPage />} />
-        <Route path="*" element={<PageNotFound />} />
+        {/* <Route path="*" element={<PageNotFound />} /> */}
     </Route>
     </Routes>
     </BrowserRouter>
