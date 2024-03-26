@@ -1,8 +1,19 @@
-# GIGI TravelingGirl
+# GIGI TravelGirl
 
 ![GIGI TAVELGIRL](./img/IMG-20240324-WA0011.jpg)
 
 Welcome to our GIGI TravelGirl Travel and Tourism Application! This Application is designed to provide users with a comprehensive platform for exploring and planning their travel adventures across various destinations. Whether you're seeking inspiration for your next trip, researching travel tips, or booking accommodations and activities, our website aims to make your travel experience enjoyable and hassle-free.
+
+## Table of Contents
+
+- [GIGI TravelGirl](#gigi-travelgirl)
+  - [Table of Contents](#table-of-contents)
+  - [Features](#features)
+  - [Technologies Used](#technologies-used)
+  - [Getting Started](#getting-started)
+  - [Contributing](#contributing)
+  - [License](#license)
+  - [Contact Us](#contact-us)
 
 ## Features
 
@@ -36,6 +47,8 @@ Our Travel and Tourism Application is built using modern web technologies to ens
 
 ## Getting Started
 
+![Getting started](https://media.tenor.com/r3XdvPsAV3kAAAAC/despicable-me-minions.gif)
+
 To get started with our Travel and Tourism Application, simply visit [website-url] and create a user account. Once logged in, you can start exploring destinations, planning your trips, and booking accommodations and activities.
 
 For developers interested in contributing to the project or exploring the codebase, follow these steps:
@@ -46,6 +59,8 @@ For developers interested in contributing to the project or exploring the codeba
 4. Run the development server: `npm run dev`
 
 ## Contributing
+
+![Contributions](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww6.royalbank.com%2Fen%2Fdi%2Fhubs%2Finvesting-academy%2Fchapter%2Fhow-much-can-i-contribute-to-my-tfsa%2Fki58km3m%2Fki58km3u&psig=AOvVaw3qUfbufbE72yAX6y9psneO&ust=1711570269313000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCOCg_aDekoUDFQAAAAAdAAAAABAE)
 
 We welcome contributions from the community to help improve and enhance our Travel and Tourism Application. Whether you're a developer, designer, or travel enthusiast, there are many ways to contribute:
 
