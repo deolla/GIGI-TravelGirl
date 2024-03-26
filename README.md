@@ -6,7 +6,7 @@ Welcome to our GIGI TravelGirl Travel and Tourism Application! This Application 
 
 ## Features
 
-[Features](./img/Travel-website-features.webp)
+![Features](./img/Travel-website-features.webp)
 
 Our Travel and Tourism Application offers a range of features to cater to the diverse needs of travelers:
 
