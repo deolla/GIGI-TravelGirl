@@ -60,7 +60,7 @@ For developers interested in contributing to the project or exploring the codeba
 
 ## Contributing
 
-![Contributions](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww6.royalbank.com%2Fen%2Fdi%2Fhubs%2Finvesting-academy%2Fchapter%2Fhow-much-can-i-contribute-to-my-tfsa%2Fki58km3m%2Fki58km3u&psig=AOvVaw3qUfbufbE72yAX6y9psneO&ust=1711570269313000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCOCg_aDekoUDFQAAAAAdAAAAABAE)
+![Contributions](./img/image_processing20220116-1843-ezf263.gif)
 
 We welcome contributions from the community to help improve and enhance our Travel and Tourism Application. Whether you're a developer, designer, or travel enthusiast, there are many ways to contribute:
 
@@ -72,10 +72,12 @@ Please review our [Contribution Guidelines](CONTRIBUTING.md) for more informatio
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+GIGI TravelGirl is licensed under the [MIT License](./LICENSE).
 
 ## Contact Us
 
-If you have any questions, feedback, or inquiries about our Travel and Tourism Application, please don't hesitate to contact us at [contact-email]. We're here to help and make your travel experience memorable!
+![Contact us](./img/hand-stacking-wood-blocks-with-icons-mobile-phone-email-envelope-telephone-e-mail-address-against-gray-background-wooden-cubes-with-symbol-telephone-email-address-contact-us_256259-1521.avif)
+
+If you have any questions, feedback, or inquiries about our Travel and Tourism Application, please don't hesitate to contact us at [doe70097@gmail.com]. We're here to help and make your travel experience memorable!
 
 Happy travels! 🌍✈️
