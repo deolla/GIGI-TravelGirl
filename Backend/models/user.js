@@ -1,4 +1,7 @@
 import mongoose from "mongoose";
+import crypto from 'crypto';
+import bcrypt from 'bcrypt';
+
 const { Schema, model, Types } = mongoose;
 
 const userSchema = new Schema ({
@@ -22,12 +25,29 @@ const userSchema = new Schema ({
         numGuests: { type: Number },
         totalPrice: { type: Number },
         status: { type: String } // e.g., confirmed, pending, canceled
-    }]
+    }],
+    passwordChangedAt: { type: Date},
+    dateJoined: { type: Date, default: Date.now },
+    passwordResetToken: { type: String },
+    passwordResetTokenExpires: { type: Date }
 });
 
 // Add indexes
 userSchema.index({ username: 1, email: 1 });
 
+userSchema.methods.createPasswordResetToken = function(){
+    const resetToken = crypto.randomBytes(32).toString('hex');
+    const hashedToken = crypto.createHash('sha256').update(resetToken).digest('hex');
+    this.passwordResetToken = hashedToken;
+    this.passwordResetTokenExpires = Date.now() + 10 * 60 * 1000;
+    console.log('Password reset token created: ', resetToken, this.passwordResetToken);
+    return resetToken;
+}
+
+
+
 const User = model("User", userSchema);
+
+
 
 export default User;
