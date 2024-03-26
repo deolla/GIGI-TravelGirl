@@ -24,6 +24,8 @@ Our Travel and Tourism Application offers a range of features to cater to the di
 
 ## Technologies Used
 
+![Technologies](./img/blog-13-web-dev-technologies-in-post-1.png)
+
 Our Travel and Tourism Application is built using modern web technologies to ensure a seamless and intuitive user experience:
 
 - **Frontend**: React.js Tai
