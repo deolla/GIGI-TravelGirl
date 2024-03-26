@@ -68,7 +68,7 @@ We welcome contributions from the community to help improve and enhance our Trav
 - Submit pull requests for fixes, features, or documentation improvements.
 - Share feedback and ideas for new features or improvements.
 
-Please review our [Contribution Guidelines](CONTRIBUTING.md) for more information on how to contribute.
+Please review our [Contribution Guidelines](./CONTRIBUTING.md) for more information on how to contribute.
 
 ## License
 
