@@ -2,6 +2,7 @@ import { useState } from "react";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from "react";
+import axios from "axios";
 
 function SearchBar() {    
 
@@ -15,28 +16,66 @@ useEffect(() => {
     });
   }, []);
 
-    return <form action="http://127.0.0.1:5173/flight" method="post">
+  const [formData, setFormData] = useState({
+    to: '',
+    from: '',
+    date: '',
+  })
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formData)
+    // axios.post('http://localhost:5000/api/login', formData, {  headers: {
+    //     'Content-Type': 'application/json',
+    //         'Access-Control-Allow-Origin': '*', // Allow requests from all origins
+    //       }})
+    //     .then(response => {
+    //         if (response.status === 200) {
+    //             console.log('Success'
+    //             )
+    //         }else{
+    //             console.error('Sign up failed' );
+    //         }
+    //     }).catch (error =>{
+    //        console.error('error with login', error);
+    //     })
+        // setFormData({
+        //     to: '',
+        //     from: '',
+        //     date: '',
+        // });
+    };
+  
+
+    return <form action="" onSubmit={handleSubmit} method="">
 
         <div data-aos='fade-up' data-aos-delay='600' className="relative p-4 bg-white space-y-4 rounded-md">
             <div className="grid grid-cols-1 sm:grid-cols-2 py-3 gap-4 ">
                 <div className="">
-                    <label htmlFor="destination" className="opacity-70">
+                    <label htmlFor="from" className="opacity-70">
                         From
                     </label>
-                    <input type="text" name="destination" id="destination" placeholder="Ghana" 
+                    <input type="text" name="from" value={formData.from} onChange={handleInputChange} id="from" placeholder="Ghana" 
                     className="bg-gray-200 p-3 my-2 w-full range accent-secondary focus:outline-primary focus:outline outline-1 rounded-full"/>
 
-                    <label htmlFor="destination" className="opacity-70">
+                    <label htmlFor="to" className="opacity-70">
                         To
                     </label>
-                    <input type="text" name="destination" id="destination" placeholder="South Africa" 
+                    <input type="text" name="to" id="to" value={formData.to} onChange={handleInputChange} placeholder="South Africa" 
                     className="bg-gray-200 p-3 my-2 w-full range accent-secondary focus:outline-primary focus:outline outline-1 rounded-full"/>
                 </div>
                 <div>
-                    <label htmlFor="destination" className="opacity-70">
+                    <label htmlFor="date" className="opacity-70">
                         Date
                     </label>
-                    <input type="date" name="destination" id="destination"
+                    <input type="date" name="date" value={formData.date} onChange={handleInputChange} id="date"
                     className="bg-gray-200 p-3 my-2 w-full !placeholder-slate-400 focus:outline-primary focus:outline outline-1 rounded-full"/> 
                         <label htmlFor="destination" className="opacity-70 block">
                         <div className="flex justify-between items-center w-full">

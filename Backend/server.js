@@ -5,6 +5,9 @@ import dotenv from "dotenv";
 import userRoute from "./routes/user.js";
 import AuthRoute from "./routes/auth.js";
 import LocationRoute from "./routes/location.js";
+import morgan from "morgan";
+import bodyParser from "body-parser";
+import cors from "cors";
 
 dotenv.config();
 const app = express();
@@ -13,7 +16,6 @@ const port = 5000;
 const URI =
   "mongodb+srv://GIGI-TravelGirl:GIGI-TravelGirl@gigi-travelgirlcluster.bma2zsf.mongodb.net/?retryWrites=true&w=majority&appName=GIGI-TravelGirlCluster";
 
-// const URI = "mongodb://localhost:27017/testdb";
 async function connect() {
   try {
     await mongoose.connect(process.env.URI);
@@ -28,11 +30,13 @@ mongoose.connection.on("error", (error) => {
 });
 
 // middleware routes
-app.use(express.json());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(morgan("dev"));
+app.use(cors());
 app.use("/user", userRoute);
 app.use("/location", LocationRoute);
 app.use("/api", AuthRoute);
-
 
 // Listen to port 5000
 app.listen(port, () => {

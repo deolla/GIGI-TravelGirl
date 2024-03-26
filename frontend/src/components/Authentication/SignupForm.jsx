@@ -1,13 +1,12 @@
 import LoginImage from '../../assets/login.jpg'
 import Logo from  '../../assets/logo.jpg'
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios'
 
-
-
-function SignupForm({ onToggleForm }) {
+function SignupForm() {
     useEffect(() => {
         AOS.init({
           disable: "phone",
@@ -15,6 +14,51 @@ function SignupForm({ onToggleForm }) {
           easing: "fade-up",
         });
       }, []);
+    
+    const navigate = useNavigate()
+    const [formData, setFormData] = useState({
+      email: '',
+      password: '',
+      fullName: '',
+      tel:'',
+      confirm_password:'',
+      username: '',
+
+    })
+            // Handle form input changes
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+  };
+
+      // Handle form submission
+      const handleSubmit =  (e) => {
+        e.preventDefault();
+        axios.post('http://localhost:5000/api/register', formData, {  headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*', // Allow requests from all origins
+          }})
+        .then(response => {
+            if (response.status === 201) {
+                navigate('/login')
+            }else{
+                console.error('Sign up failed' );
+            }
+        }).catch (error =>{
+           console.error('error with signup', error);
+        })
+        setFormData({
+          email: '',
+          password: '',
+          fullName: '',
+          tel:'',
+          confirm_password:'',
+          username: '',
+        });
+    };
 
   return (
     <>
@@ -27,22 +71,23 @@ function SignupForm({ onToggleForm }) {
                 <h2 className='text-primary font-bold text-center'>GIGI-Travelgirl</h2>
                 <p className='text-sm mt-8'>Enter your details to create your account.</p>
 
-                <form action="" className='flex flex-col gap-4'>
-                <input type="text" name="fullname" id="fullname" placeholder='FullName' className='p-2 mt-8 border rounded-xl'/>
-                    <input type="email" name="email" id="email" placeholder='Email' className='p-2 mt-2 border rounded-xl'/>
-                    <input type="tel" name="tel" id="tel" placeholder='Phone Number' className='p-2 mt-2 border rounded-xl'/>
+                <form action="" onSubmit={handleSubmit} className='flex flex-col gap-4'>
+                <input type="text" name="fullName" id="fullName" value={formData.fullName} onChange={handleInputChange} placeholder='FullName' className='p-2 mt-8 border rounded-xl'/>
+                <input type="text" name="username" id="username" value={formData.username} onChange={handleInputChange} placeholder='UserName' className='p-2 mt-8 border rounded-xl'/>
+                    <input type="email" name="email" id="email" value={formData.email} onChange={handleInputChange} placeholder='Email' className='p-2 mt-2 border rounded-xl'/>
+                    <input type="tel" name="tel" id="tel" value={formData.tel} onChange={handleInputChange} placeholder='Phone Number' className='p-2 mt-2 border rounded-xl'/>
 
                     <div className='relative'>
-                    <input type="password" name="password" id="password" placeholder='Password' className=' w-full p-2 border rounded-xl' />
+                    <input type="password" name="password" id="password" value={formData.password} onChange={handleInputChange} placeholder='Password' className=' w-full p-2 border rounded-xl' />
                     <svg className='fill-gray-400 absolute top-1/2 right-3 -translate-y-1/2 cursor-pointer' xmlns="http://www.w3.org/2000/svg" width="16" height="16"  viewBox="0 0 16 16">
-<path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/>
-  <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
-</svg>
+                      <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/>
+                        <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
+                      </svg>
 
                     </div>
 
                     <div className='relative'>
-                    <input type="password" name="confirm_password" id="confirm_password" placeholder='Confirm password' className=' w-full p-2 border rounded-xl' />
+                    <input type="password" name="confirm_password" id="confirm_password" value={formData.confirm_password} onChange={handleInputChange} placeholder='Confirm password' className=' w-full p-2 border rounded-xl' />
                     <svg className='fill-gray-400 absolute top-1/2 right-3 -translate-y-1/2 cursor-pointer' xmlns="http://www.w3.org/2000/svg" width="16" height="16"  viewBox="0 0 16 16">
 <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/>
   <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
@@ -66,9 +111,9 @@ function SignupForm({ onToggleForm }) {
                         </svg>
                         Login with Google</button>
                         
-                        <div className='w-full flex items-center justify-center'>
-                            <p className='text-[#060606] text-sm font-normal'>Already have an account? <Link to="#" onClick={onToggleForm} className='text-primary font-semibold underline underline-offset-2 cursor-pointer'>Login</Link></p>
-                            </div>
+                  <div className='w-full flex items-center justify-center'>
+                      <p className='text-[#060606] text-sm font-normal'>Already have an account? <Link to="/login" className='text-primary font-semibold underline underline-offset-2 cursor-pointer'>Login</Link></p>
+                      </div>
                 
 
             </div>
