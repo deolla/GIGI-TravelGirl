@@ -1,4 +1,4 @@
-import {  Route, Routes  } from 'react-router-dom';
+import {  Route, Routes, useNavigate  } from 'react-router-dom';
 import {useState, useEffect} from 'react'
 import AppLayout from './pages/AppLayout';
 import HomePage from './pages/HomePage';
@@ -25,6 +25,7 @@ function App() {
       setIsLoggedIn(true);
     }
   }, []);
+  const navigate = useNavigate()
   // const [currentUser, setCurrentUser] = useState(null)
   // console.log(Token)
   // if (isLoggedIn) {
@@ -35,7 +36,7 @@ function App() {
   return (
     
     <Routes>
-      <Route path="/" element={<AppLayout />}>
+      <Route path="/" element={<AppLayout navigation={navigate}/>}>
           <Route index element={<HomePage />} />
           <Route path="/locations" element={<Locations />} />
           <Route path="/about" element={<AboutPage />} />

@@ -1,8 +1,9 @@
 import { Link, NavLink } from "react-router-dom";
 import Logo from "../../assets/logo.jpg";
 import { FaCaretDown } from "react-icons/fa";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { HiMenuAlt1, HiMenuAlt3 } from  "react-icons/hi";
+import LogoutFunc from "../Authentication/Logout";
 // import SignupForm from '../Authentication/SignupForm';
 
 const DropdownLinks = [
@@ -22,7 +23,7 @@ const DropdownLinks = [
 ];
 
 
-function Navbar() {
+function Navbar({ navigation}) {
   const [showMenu, setShowMenu] = useState(false);
 
   const toggleMenu = () => {
@@ -115,9 +116,7 @@ function Navbar() {
           {/* Login and signup buttons */}
           <div className="flex items-center gap-4">
             <button onClick={toggleSignupForm} className="bg-primary  text-white px-3 py-1 rounded-full">
-            <Link to='/signup'>
-              signUp
-            </Link>
+              {localStorage.getItem('isLoggedIn') == 'true' ? <button onClick={() => LogoutFunc(navigation)}>Logout</button> : <Link to='/login'>Sign In</Link>}
             </button>
   
             {/* hamburger menu for smaller screens */}

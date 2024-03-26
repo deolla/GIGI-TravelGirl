@@ -6,7 +6,7 @@ function FlightsPage(){
     const navigate = useNavigate()
     const isLoggedIn = localStorage.getItem('isLoggedIn')
     useEffect(() => {
-        if (!isLoggedIn) {
+        if (isLoggedIn == 'false') {
             navigate('/login')
         } 
     }, [isLoggedIn,navigate])

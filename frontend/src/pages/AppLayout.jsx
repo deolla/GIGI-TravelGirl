@@ -5,8 +5,9 @@ import Footer from "../components/Footer/Footer";
 // import SignupForm from '../components/Authentication/SignupForm';
 // import LoginForm from '../components/Authentication/LoginForm';
 import { Outlet } from 'react-router-dom';
+import LogoutFunc from "../components/Authentication/Logout";
 
-function AppLayout() {
+function AppLayout({navigation}) {
   // const [showLoginForm, setShowLoginForm] = useState(false);
 
   // const toggleLoginForm = () => {
@@ -15,7 +16,7 @@ function AppLayout() {
 
   return (
     <>
-      <Navbar />
+      <Navbar navigation={navigation}/>
       {/* {showLoginForm ? (
         <LoginForm onToggleForm={toggleLoginForm} />
       ) : (
