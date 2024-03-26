@@ -2,9 +2,11 @@
 
 ![GIGI TAVELGIRL](./img/IMG-20240324-WA0011.jpg)
 
-Welcome to our Travel and Tourism Application! This website is designed to provide users with a comprehensive platform for exploring and planning their travel adventures across various destinations. Whether you're seeking inspiration for your next trip, researching travel tips, or booking accommodations and activities, our website aims to make your travel experience enjoyable and hassle-free.
+Welcome to our GIGI TravelGirl Travel and Tourism Application! This Application is designed to provide users with a comprehensive platform for exploring and planning their travel adventures across various destinations. Whether you're seeking inspiration for your next trip, researching travel tips, or booking accommodations and activities, our website aims to make your travel experience enjoyable and hassle-free.
 
 ## Features
+
+[Features](./img/Travel-website-features.webp)
 
 Our Travel and Tourism Application offers a range of features to cater to the diverse needs of travelers:
 
