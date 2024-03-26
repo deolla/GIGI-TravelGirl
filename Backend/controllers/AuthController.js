@@ -61,7 +61,6 @@ const register = (req, res, next) => {
                         return res.status(200).json({
                             message: 'Authentication successful',
                             token: token,
-                            new_token: new_token
                         });
                     } else {
                         res.status(401).json({
@@ -76,6 +75,14 @@ const register = (req, res, next) => {
                     error: err
                 });
             });
-    };    
+    };
 
-export default { register, login };
+const logout = (req, res, next) => {
+    res.cookie('jwt', '', { maxAge: 1 });
+    res.status(200).json({
+        message: 'Logged out successfully'
+    });
+    return res.redirect('/');
+}
+
+export default { register, login, logout };
