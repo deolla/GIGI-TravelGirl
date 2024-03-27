@@ -1,6 +1,6 @@
 import { useState } from "react";
 import AOS from 'aos';
-import 'aos/dist/aos.css'; // Import AOS styles
+import 'aos/dist/aos.css';
 import { useEffect } from "react";
 
 
@@ -19,15 +19,15 @@ function HeroSection() {
         <div className="bg-primary/10 h-full flex justify-center items-center p-4">
             <div className="container grid grid-cols-1 gap-4">
                 {/* text section */}
-                <div className="text-white">
-                    <p data-aos="fade-up">Wanna go on a vacation?</p>
+                <div className="text-white ">
+                    <p data-aos="fade-up" className="sm:max-w-md text-center mt-12 pt-5 sm:mt-0">Wanna go on a vacation? GIGI-TravelGirl will organize your trip with the best places and within best budget!</p>
                     <p className="text-4xl font-bold" data-aos="fade-up" data-aos-delay="300">
                         Find Your Destination  
                     </p>
                 </div>
                 {/* form section */}
                 <div data-aos='fade-up' data-aos-delay='600' className="relative p-4 bg-white space-y-4 rounded-md">
-                    <div className="grid grid-cols-1 sm:grid-cols-4 py-3">
+                    <div className="grid grid-cols-1 sm:grid-cols-4 py-3 gap-4 ">
                         <div>
                             <label htmlFor="destination" className="opacity-70">
                                 Search your next vacation

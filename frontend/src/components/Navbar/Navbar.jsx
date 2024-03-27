@@ -1,8 +1,10 @@
 import { Link, NavLink } from "react-router-dom";
 import Logo from "../../assets/logo.jpg";
 import { FaCaretDown } from "react-icons/fa";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { HiMenuAlt1, HiMenuAlt3 } from  "react-icons/hi";
+import LogoutFunc from "../Authentication/Logout";
+// import SignupForm from '../Authentication/SignupForm';
 
 const DropdownLinks = [
   {
@@ -21,12 +23,19 @@ const DropdownLinks = [
 ];
 
 
-function Navbar() {
+function Navbar({ navigation}) {
   const [showMenu, setShowMenu] = useState(false);
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
   };
+
+  const [showSignupForm, setShowSignupForm] = useState(false);
+
+    // Function to toggle the visibility of the Signup form
+    const toggleSignupForm = () => {
+        setShowSignupForm(!showSignupForm);
+    };
 
   
   return (
@@ -102,17 +111,12 @@ function Navbar() {
                   </ul>
                 </div>
               </li>
-
-
             </ul>
           </div>
           {/* Login and signup buttons */}
           <div className="flex items-center gap-4">
-          <button className="bg-gradient-to-r from-primary to-secondary hover:bg-bg-gradient-to-r hover:from-secondary hover:bg-primary transition-all duration-500 text-white px-3 py-1 rounded-full">
-            Login
-            </button>
-            <button className="bg-gradient-to-r from-primary to-secondary hover:bg-bg-gradient-to-r hover:from-secondary hover:bg-primary transition-all duration-500 text-white px-3 py-1 rounded-full">
-            signUp
+            <button onClick={toggleSignupForm} className="bg-primary  text-white px-3 py-1 rounded-full">
+              {localStorage.getItem('isLoggedIn') == 'true' ? <button onClick={() => LogoutFunc(navigation)}>Logout</button> : <Link to='/login'>Sign In</Link>}
             </button>
   
             {/* hamburger menu for smaller screens */}
@@ -130,6 +134,7 @@ function Navbar() {
         </div>
 
       </div>
+      {/* {showSignupForm && <SignupForm />} */}
 {/* 
       <ResponsiveMenu setShowMenu={setShowMenu} showMenu={showMenu} /> */}
       
