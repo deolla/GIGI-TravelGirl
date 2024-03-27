@@ -2,6 +2,7 @@
 import express from "express";
 import UserController from "../controllers/UserController.js";
 import authenticate from "../middleware/authenticate.js";
+
 const router = express.Router();
 
 // Get all users

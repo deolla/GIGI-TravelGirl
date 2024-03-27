@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
 import express from "express";
-// import User from "./models/user";
 import dotenv from "dotenv";
 import userRoute from "./routes/user.js";
 import AuthRoute from "./routes/auth.js";
@@ -13,8 +12,6 @@ dotenv.config();
 const app = express();
 const port = 5000;
 
-const URI =
-  "mongodb+srv://GIGI-TravelGirl:GIGI-TravelGirl@gigi-travelgirlcluster.bma2zsf.mongodb.net/?retryWrites=true&w=majority&appName=GIGI-TravelGirlCluster";
 
 async function connect() {
   try {
