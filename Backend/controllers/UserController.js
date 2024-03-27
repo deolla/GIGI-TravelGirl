@@ -27,6 +27,20 @@ const getUser = async (req, res, next) => {
   }
 };
 
+const currentUser = async (req, res, next) => {
+  try {
+    // console.log(req.userData);
+    const user = await User.findById(req.userData.userId);
+    // const user = await User.find();
+    if (user) {
+      res.status(200).json(user);
+    } else {
+      res.status(404).json({ message: "User not found" });
+    }
+  } catch (err) {
+    next(err);
+  }
+};
 const updateUser = async (req, res, next) => {
   try {
     const updateUser = await User.findByIdAndUpdate(
@@ -84,4 +98,5 @@ export default {
   updateUser,
   deleteUser,
   createUser,
+  currentUser,
 };
