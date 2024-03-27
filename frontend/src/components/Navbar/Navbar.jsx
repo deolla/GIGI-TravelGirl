@@ -23,6 +23,7 @@ const DropdownLinks = [
 ];
 
 
+// eslint-disable-next-line react/prop-types, no-unused-vars
 function Navbar({ formVisibility, toggleSignupForm, toggleLoginForm, navigation }) {
   const [showMenu, setShowMenu] = useState(false);
 
@@ -30,18 +31,18 @@ function Navbar({ formVisibility, toggleSignupForm, toggleLoginForm, navigation 
     setShowMenu(!showMenu);
   };
 
-const closeMenu = () => {
-  setShowMenu(false);
-};
+  const closeMenu = () => {
+    setShowMenu(false);
+  };
 
   return (
     <div className="fixed top-0 right-0 w-full bg-white text-black shadow-md z-[9999]">
       <div className="bg-gradient-to-r from-primary to-secondary text-white">
       <div className="container py-[2px] sm:block hidden">
-<div className="flex justify-between">
-  <p>10% off on Easter Travels</p>
-  <p>call. +2347031910385</p>
-</div>
+    <div className="flex justify-between">
+      <p>10% off on Easter Travels</p>
+      <p>call. +2347031910385</p>
+    </div>
       </div>
       </div>
 
