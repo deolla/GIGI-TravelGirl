@@ -39,7 +39,6 @@ function LocationsCard({image, title, location, description, price, type}) {
   )
 }
 
-//write prop validation
 LocationsCard.propTypes = {
     image: PropTypes.string,
     title: PropTypes.string,
