@@ -22,7 +22,7 @@ function SearchResult() {
                                 <p className="text-gray-800 font-bold">${place.price}</p>
                             </div>
                             <div className="bg-gray-100 px-4 py-2">
-                                <Link to={`/book/${place.name}`} className="bg-gradient-to-r from-primary to-secondary text-white  font-bold hover:text-primary-700">
+                                <Link to={`/book/${place.name}`} className="bg-gradient-to-r from-primary to-secondary text-white font-bold py-2 px-4 rounded">
                                     Book Now
                                 </Link>
                             </div>
