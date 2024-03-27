@@ -2,6 +2,7 @@ import { useState } from "react";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 
 function HeroSection() {
@@ -69,13 +70,14 @@ function HeroSection() {
                         </div>
                     </div>
                     {/* search button */}
+                    <Link to='/Searchresult'>
                 <button className="bg-gradient-to-r from-secondary  to-primary px-4 py-2
                  text-3xl font-bold text-white
                  hover:scale-105 duration-200 rounded-full absolute -bottom-5 left-1/2 
                  -translate-x-1/2">
                     Search
                 </button>
-            
+                </Link>
 
                 </div>
             </div>
