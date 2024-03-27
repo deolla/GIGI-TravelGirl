@@ -1,9 +1,10 @@
 import { Link, NavLink } from "react-router-dom";
 import Logo from "../../assets/logo.jpg";
 import { FaCaretDown } from "react-icons/fa";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { HiMenuAlt1, HiMenuAlt3 } from  "react-icons/hi";
-
+import LogoutFunc from "../Authentication/Logout";
+// import SignupForm from '../Authentication/SignupForm';
 
 const DropdownLinks = [
   {
@@ -22,7 +23,7 @@ const DropdownLinks = [
 ];
 
 
-function Navbar({ formVisibility, toggleSignupForm, toggleLoginForm }) {
+function Navbar({ formVisibility, toggleSignupForm, toggleLoginForm, navigation }) {
   const [showMenu, setShowMenu] = useState(false);
 
   const toggleMenu = () => {
@@ -115,11 +116,8 @@ const closeMenu = () => {
           
           {/* Login and signup buttons */}
           <div className="flex items-center gap-4">
-            <button onClick={toggleLoginForm} className="bg-primary text-white px-3 py-1 rounded-full">
-            Login
-            </button>
-            <button onClick={toggleSignupForm} className="bg-primary  text-white px-6 py-1 rounded-full hover:bg-secondary hover:text-white">
-            signUp
+            <button onClick={toggleSignupForm} className="bg-primary  text-white px-3 py-1 rounded-full">
+              {localStorage.getItem('isLoggedIn') == 'true' ? <button onClick={() => LogoutFunc(navigation)}>Logout</button> : <Link to='/login'>Sign In</Link>}
             </button>
   
   
@@ -159,6 +157,10 @@ const closeMenu = () => {
         </div>
 
       </div>
+
+      {/* {showSignupForm && <SignupForm />} */}
+{/* 
+      <ResponsiveMenu setShowMenu={setShowMenu} showMenu={showMenu} /> */}
       
     </div>
     
