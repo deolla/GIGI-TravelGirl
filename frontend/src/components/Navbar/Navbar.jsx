@@ -23,21 +23,17 @@ const DropdownLinks = [
 ];
 
 
-function Navbar({ navigation}) {
+function Navbar({ formVisibility, toggleSignupForm, toggleLoginForm, navigation }) {
   const [showMenu, setShowMenu] = useState(false);
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
   };
 
-  const [showSignupForm, setShowSignupForm] = useState(false);
+const closeMenu = () => {
+  setShowMenu(false);
+};
 
-    // Function to toggle the visibility of the Signup form
-    const toggleSignupForm = () => {
-        setShowSignupForm(!showSignupForm);
-    };
-
-  
   return (
     <div className="fixed top-0 right-0 w-full bg-white text-black shadow-md z-[9999]">
       <div className="bg-gradient-to-r from-primary to-secondary text-white">
@@ -51,6 +47,7 @@ function Navbar({ navigation}) {
 
       <div className="container py-3 sm:py-0">
         <div className="flex justify-between items-center">
+
           {/* logo */}
           <div className="flex items-center">
             <Link to="/" onClick={() => window.scrollTo(0, 0)}>
@@ -58,32 +55,34 @@ function Navbar({ navigation}) {
             </Link>
             <span className="text-xl text-primary px-2 py-1 font-bold">GIGI-TravelGirl</span>
           </div>
+
           {/* navlinks for desktop */}
           <div className="hidden md:block">
             <ul className="flex items-center gap-6">
               <li className="py-4">
-                <NavLink to="/"  activeClassname="active" onClick={() => window.scrollTo(0, 0)}>
+                <NavLink to="/"  activeclassname="active" onClick={() => window.scrollTo(0, 0)}>
                   Home
                 </NavLink>
               </li>
 
               <li className="py-4">
-                <NavLink to="/locations" activeClassname="active" onClick={() => window.scrollTo(0, 0)}>
+                <NavLink to="/locations" activeclassname="active" onClick={() => window.scrollTo(0, 0)}>
                   Locations
                 </NavLink>
               </li>
 
               <li className="py-4">
-                <NavLink to="/flight" activeClassname="active" onClick={() => window.scrollTo(0, 0)}>
+                <NavLink to="/flight" activeclassname="active" onClick={() => window.scrollTo(0, 0)}>
                   Flight
                 </NavLink>
               </li>
 
               <li className="py-4">
-                <NavLink to="/about" activeClassname="active" onClick={() => window.scrollTo(0, 0)}>
+                <NavLink to="/about" activeclassname="active" onClick={() => window.scrollTo(0, 0)}>
                   About
                 </NavLink>
               </li>
+
 
               {/* dropdown menu */}
               <li className="py-4 relative group cursor-pointer">
@@ -113,11 +112,14 @@ function Navbar({ navigation}) {
               </li>
             </ul>
           </div>
+
+          
           {/* Login and signup buttons */}
           <div className="flex items-center gap-4">
             <button onClick={toggleSignupForm} className="bg-primary  text-white px-3 py-1 rounded-full">
               {localStorage.getItem('isLoggedIn') == 'true' ? <button onClick={() => LogoutFunc(navigation)}>Logout</button> : <Link to='/login'>Sign In</Link>}
             </button>
+  
   
             {/* hamburger menu for smaller screens */}
             <div className="md:hidden block">
@@ -131,9 +133,31 @@ function Navbar({ navigation}) {
             </div>
           </div>
 
+          <div className={`${showMenu ? 'translate-x-0': '-translate-x-full'} absolute bg-black/90 text-white left-0 top-20
+            font-semibold text-1xl text-center pt-8 pb-2 gap-2 w-full h-fit transition-transform duration-30 lg:hidden flex flex-col`}>
+            
+            <NavLink to="/"  activeclassname="active" onClick={() => window.scrollTo(0, 0)}>
+                  Home
+                </NavLink>
+
+                <NavLink to="/locations" activeclassname="active" onClick={() => window.scrollTo(0, 0)}>
+                  Locations
+                </NavLink>
+
+                <NavLink to="/flight" activeclassname="active" onClick={() => window.scrollTo(0, 0)}>
+                  Flight
+                </NavLink>
+
+                <NavLink to="/about" activeclassname="active" onClick={() => window.scrollTo(0, 0)}>
+                  About
+                </NavLink>
+
+          </div>
+
         </div>
 
       </div>
+
       {/* {showSignupForm && <SignupForm />} */}
 {/* 
       <ResponsiveMenu setShowMenu={setShowMenu} showMenu={showMenu} /> */}
