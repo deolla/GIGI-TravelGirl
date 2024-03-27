@@ -7,7 +7,9 @@ import Locations from './pages/Locations';
 import FlightsPage from './pages/FlightBooking';
 import SignupPage from './pages/SignupPage';
 import LoginPage from './pages/LoginPage';
-// import React from 'react';
+import LocationsDetails from './components/Locations/LocationsDetails';
+import SearchResult from './pages/SearchResult';
+
 
 // import PageNotFound from './pages/PageNotFound';
 
@@ -39,10 +41,12 @@ function App() {
       <Route path="/" element={<AppLayout navigation={navigate}/>}>
           <Route index element={<HomePage />} />
           <Route path="/locations" element={<Locations />} />
+          <Route path="/locations/:id" element={<LocationsDetails />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path='/login' element={<LoginPage isLoggedIn={isLoggedIn} setLoggedIn={setIsLoggedIn} setToken={setToken} />} />
           <Route path='/signup' element={<SignupPage />} />
           <Route path="/flight" element={<FlightsPage />} />
+          <Route path="/searchresult" element={<SearchResult />} />
           {/* {ProtectedRoute('/flight', <FlightsPage/>)}          */}
           {/* <Route path="*" element={<PageNotFound />} />  */}
       </Route>
