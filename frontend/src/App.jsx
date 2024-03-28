@@ -7,9 +7,10 @@ import Locations from './pages/Locations';
 import FlightsPage from './pages/FlightBooking';
 import SignupPage from './pages/SignupPage';
 import LoginPage from './pages/LoginPage';
+import LocationsDetails from './components/Locations/LocationsDetails';
+import SearchResult from './pages/SearchResult';
 import UserPage from './pages/UserPage';
 // import React from 'react';
-
 // import PageNotFound from './pages/PageNotFound';
 
 
@@ -39,6 +40,8 @@ function App() {
     <Routes>
       <Route path="/" element={<AppLayout navigation={navigate}/>}>
           <Route index element={<HomePage />} />
+          <Route path="/locations/:id" element={<LocationsDetails />} />
+          <Route path="/searchresult" element={<SearchResult />} />
           <Route path="/locations" element={<Locations navigate={navigate}/>} />
           <Route path="/about" element={<AboutPage />} />
           <Route path='/login' element={<LoginPage isLoggedIn={isLoggedIn} setLoggedIn={setIsLoggedIn} setToken={setToken} />} />
