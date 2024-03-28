@@ -13,6 +13,7 @@ class RedisClient {
     this.client.hgetallAsync = promisify(this.client.hGetAll).bind(this.client);
     this.client.existsAsync = promisify(this.client.exists).bind(this.client);
 
+
     // Log Redis client errors
     this.client.on("error", (err) => {
       console.error("Redis Error:", err);
@@ -74,8 +75,24 @@ class RedisClient {
       throw err;
     }
   }
+
+  // Method to close the Redis client connection
+  close() {
+    this.client.quit();
+    console.log("Redis client connection closed");
+  }
+
+  // Method to clear all keys in the Redis cache
+  async flushAll() {
+    try {
+      await this.client.flushallAsync();
+      console.log("All keys cleared from Redis cache");
+    } catch (err) {
+      console.error("Error clearing keys from Redis cache:", err);
+    }
+  }
 }
 
-const rC = new RedisClient();
+// const rC = new RedisClient();
 
-export default rC;
+export default RedisClient;
