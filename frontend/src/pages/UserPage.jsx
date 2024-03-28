@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import User from "../components/User/User";
 import SwitchToLogin from "../components/helpers/auth";
 

@@ -1,7 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import Logo from "../../assets/logo.jpg";
 import { FaCaretDown } from "react-icons/fa";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import { HiMenuAlt1, HiMenuAlt3 } from  "react-icons/hi";
 import LogoutFunc from "../Authentication/Logout";
 // import SignupForm from '../Authentication/SignupForm';
@@ -31,9 +31,6 @@ function Navbar({ formVisibility, toggleSignupForm, toggleLoginForm, navigation 
     setShowMenu(!showMenu);
   };
 
-  const closeMenu = () => {
-    setShowMenu(false);
-  };
 
   return (
     <div className="fixed top-0 right-0 w-full bg-white text-black shadow-md z-[9999]">
