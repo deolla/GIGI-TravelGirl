@@ -1,0 +1,30 @@
+registration, login and logout endpoints.
+
+POST /api/register: signup/register and logs in the user
+  data_schema: {
+    "username": "string REQUIRED",
+    "fullName": "string REQUIRED",
+    "email": "string REQUIRED",
+    "password": "string REQUIRED"
+  }
+
+POST /api/login: logs in with password and email
+  data_schema: {
+    "email": "string REQUIRED",
+    "password": "string REQUIRED"
+  }
+
+POST /api/logout: logout user
+  data_schema: {
+  }
+
+user endpoints
+GET /api/users: returns a list of all registered users
+GET /api/user/<user_id>: retrurn a user with the matching id
+DELETE /api/user/<user_id>: delete a user with the matching id
+PUT /api/user/<user_id>: edit a user with the matching id
+
+auth endpoints
+POST /api/register: returns a the infor of the registered user
+POST /api/signup: signup a user
+POST /api/logout: return nothing. logs out the user
