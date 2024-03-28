@@ -9,8 +9,8 @@ import SignupPage from './pages/SignupPage';
 import LoginPage from './pages/LoginPage';
 import LocationsDetails from './components/Locations/LocationsDetails';
 import SearchResult from './pages/SearchResult';
-
-
+import UserPage from './pages/UserPage';
+// import React from 'react';
 // import PageNotFound from './pages/PageNotFound';
 
 
@@ -18,6 +18,7 @@ import SearchResult from './pages/SearchResult';
 function App() {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // const [currentUser, setCurrentUser] = useState(null);
   // eslint-disable-next-line no-unused-vars
   const [Token, setToken] = useState(null);
   useEffect(() => {
@@ -25,14 +26,13 @@ function App() {
     const loggedInStatus = localStorage.getItem('isLoggedIn');
     if (loggedInStatus === 'true') {
       setIsLoggedIn(true);
+      // localStorage.setItem('currentUser',setCurrentUser)
     }
   }, []);
   const navigate = useNavigate()
-  // const [currentUser, setCurrentUser] = useState(null)
+  
   // console.log(Token)
-  // if (isLoggedIn) {
 
-  // }
 
 
   return (
@@ -40,13 +40,14 @@ function App() {
     <Routes>
       <Route path="/" element={<AppLayout navigation={navigate}/>}>
           <Route index element={<HomePage />} />
-          <Route path="/locations" element={<Locations />} />
           <Route path="/locations/:id" element={<LocationsDetails />} />
+          <Route path="/searchresult" element={<SearchResult />} />
+          <Route path="/locations" element={<Locations navigate={navigate}/>} />
           <Route path="/about" element={<AboutPage />} />
           <Route path='/login' element={<LoginPage isLoggedIn={isLoggedIn} setLoggedIn={setIsLoggedIn} setToken={setToken} />} />
           <Route path='/signup' element={<SignupPage />} />
-          <Route path="/flight" element={<FlightsPage />} />
-          <Route path="/searchresult" element={<SearchResult />} />
+          <Route path="/flight" element={<FlightsPage navigate={navigate}/>} />
+          <Route path="/user" element={<UserPage navigate={navigate} Token={Token}/>} />
           {/* {ProtectedRoute('/flight', <FlightsPage/>)}          */}
           {/* <Route path="*" element={<PageNotFound />} />  */}
       </Route>

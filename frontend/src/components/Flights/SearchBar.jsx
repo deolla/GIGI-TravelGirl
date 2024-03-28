@@ -3,10 +3,11 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from "react";
 import axios from "axios";
-
+import FlightTabs from './FlightTabs'
 function SearchBar() {    
 
-const [budgetValue, setBudgetvalue] = useState(50);
+    const [budgetValue, setBudgetvalue] = useState(50);
+    const [apiData, setApiData] = useState([]);
 
 useEffect(() => {
     AOS.init({
@@ -29,32 +30,61 @@ useEffect(() => {
     });
   };
 
+
+
+  useEffect(() => {
+    // Load data from local storage when the component mounts
+    const savedData = localStorage.getItem('cardsData');
+    if (savedData) {setApiData(JSON.parse(savedData));}
+  
+      // Function to handle beforeunload event
+
+  const handleBeforeUnload = () => {
+    // Remove data from local storage when the user leaves the page
+        localStorage.removeItem('cardsData');
+    };
+    // Add event listener to handle beforeunload event
+    window.addEventListener('beforeunload', handleBeforeUnload);
+
+    // Cleanup function to remove event listener when component unmounts
+    return () => {
+        window.removeEventListener('beforeunload', handleBeforeUnload);
+    };
+}, [ setApiData]);
+
+
+
   const handleSubmit = (e) => {
+    const Token = localStorage.getItem('jwtToken');
     e.preventDefault();
-    console.log(formData)
-    // axios.post('http://localhost:5000/api/login', formData, {  headers: {
-    //     'Content-Type': 'application/json',
-    //         'Access-Control-Allow-Origin': '*', // Allow requests from all origins
-    //       }})
-    //     .then(response => {
-    //         if (response.status === 200) {
-    //             console.log('Success'
-    //             )
-    //         }else{
-    //             console.error('Sign up failed' );
-    //         }
-    //     }).catch (error =>{
-    //        console.error('error with login', error);
-    //     })
-        // setFormData({
-        //     to: '',
-        //     from: '',
-        //     date: '',
-        // });
+    axios.post('http://localhost:5000/flight', formData,{  headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Authorization': `Bearer ${Token}`
+            
+          }})
+        .then(response => {
+            if (response.status === 200) {
+                localStorage.setItem('cardsData',JSON.stringify(response.data))
+                setApiData(response.data)
+                console.log(response.data)
+            }else{
+                console.error('failed to get flight data' );
+            }
+        }).catch (error =>{
+           console.error('error with flight data', error);
+        })
+        setFormData({
+            to: '',
+            from: '',
+            date: '',
+        });
     };
   
 
-    return <form action="" onSubmit={handleSubmit} method="">
+    return <div>
+
+    <form action="" onSubmit={handleSubmit} method="">
 
         <div data-aos='fade-up' data-aos-delay='600' className="relative p-4 bg-white space-y-4 rounded-md">
             <div className="grid grid-cols-1 sm:grid-cols-2 py-3 gap-4 ">
@@ -108,6 +138,12 @@ useEffect(() => {
             </button>
         </div>
     </form>
+     <div className='container flex flex-col justify-end mt-6 max-w-3xl '> 
+     {apiData.map((index, value) => <FlightTabs flight={value}/>)}
+     
+     </div>
+    </div> 
+
 }
 
 
