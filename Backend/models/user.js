@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
 import crypto from 'crypto';
-import bcrypt from 'bcrypt';
 
 const { Schema, model, Types } = mongoose;
 
@@ -44,10 +43,6 @@ userSchema.methods.createPasswordResetToken = function(){
     return resetToken;
 }
 
-
-
 const User = model("User", userSchema);
-
-
 
 export default User;

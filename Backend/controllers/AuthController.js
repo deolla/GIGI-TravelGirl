@@ -5,7 +5,6 @@ import sendEmail from "../middleware/email.js";
 import crypto from "crypto";
 
 const register = (req, res, next) => {
-  //   console.log(req.body);
   bcrypt.hash(req.body.password, 10, (err, hash) => {
     if (err) {
       return res.status(500).json({
