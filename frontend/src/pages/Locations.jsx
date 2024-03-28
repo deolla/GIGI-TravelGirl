@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import Locations from '../components/Locations/Locations';
 import SwitchToLogin from '../components/helpers/auth';
 

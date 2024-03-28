@@ -49,9 +49,25 @@ class FlightController {
       );
       const response = await ans.json();
       // console.log(response.data.listings);
+      const data = response.data.listings.map((x) => {
+        return {
+          airline: x.airlines[0].name,
+          logo: x.airlines[0].image,
+          arrivalTime: x.slices[0].segments[0].arrivalInfo.time.dateTime,
+          to: x.slices[0].segments[0].arrivalInfo.airport.code,
+          departureTime: x.slices[0].segments[0].departInfo.time.dateTime,
+          from: x.slices[0].segments[0].departInfo.airport.code,
+          price: x.totalPriceWithDecimal.price,
+          url: `https://booking.kayak.com/flights/${
+            x.slices[0].segments[0].arrivalInfo.airport.code
+          }-${x.slices[0].segments[0].departInfo.airport.code}/${
+            x.slices[0].segments[0].departInfo.time.dateTime.split("T")[0]
+          }?sort=bestflight_a`,
+        };
+      });
 
       if (ans.ok) {
-        res.json(response.data.listings);
+        res.json(data);
       } else {
         res.status(404).json({ message: "cant help" });
       }

@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 
 import { FaFacebook, FaInstagram, FaTiktok, FaLocationArrow, FaMobileAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
