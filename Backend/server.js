@@ -4,6 +4,8 @@ import dotenv from "dotenv";
 import userRoute from "./routes/user.js";
 import AuthRoute from "./routes/auth.js";
 import LocationRoute from "./routes/location.js";
+import CurrentRoute from "./routes/current.js";
+import FlightRoute from "./routes/Flight.js";
 import morgan from "morgan";
 import bodyParser from "body-parser";
 import cors from "cors";
@@ -34,6 +36,8 @@ app.use(cors());
 app.use("/user", userRoute);
 app.use("/location", LocationRoute);
 app.use("/api", AuthRoute);
+app.use("/flight", FlightRoute);
+app.use("/current", CurrentRoute);
 
 // Listen to port 5000
 app.listen(port, () => {

@@ -18,7 +18,7 @@ function Locations() {
     const locationsdata = [
         {
             image:BoatCruise,
-            title: 'Boat Cruise',
+            title: 'Mccarthy Resort',
             location: 'Nigeria',
             description: 'Mcarthy resort in Delta State with amazing facilities. lorem ipsum is a dummy text. lorem is a dummy text. lorem ipsum',
             price: 500,
@@ -26,7 +26,7 @@ function Locations() {
         },
         {
             image:IvoryCoast,
-            title: 'Cruise',
+            title: "St paul's Cathedral",
             location: 'Ivory Coast',
             description: "Côte d'Ivoire, good lodge and logistics. Lorem ipssum is a dummy text, it is a dummy text",
             price: 1000,
@@ -34,7 +34,7 @@ function Locations() {
         },
         {
             image:Telemoundoaf,
-            title: 'Hangout',
+            title: 'Nike gallery',
             location: 'Nigeria',
             description: 'Lagos, free lunch and beach. Lorem ipsum is a dummy text and dummy text',
             price: 300,
@@ -42,7 +42,7 @@ function Locations() {
         },
         {
             image:IvoryCoast,
-            title: 'Cruise',
+            title: "St Paul's Cathedral",
             location: 'Ivory Coast',
             description: "Côte d'Ivoire, good lodge and logistics. Lorem ipssum is a dummy text, it is a dummy text",
             price: 1000,
@@ -50,7 +50,7 @@ function Locations() {
         },
         {
             image:BoatCruise,
-            title: 'Boat Cruise',
+            title: 'Mccarthy Resort',
             location: 'Nigeria',
             description: 'Mcarthy resort in Delta State with amazing facilities. lorem ipsum is a dummy text. lorem is a dummy text. lorem ipsum',
             price: 500,
@@ -58,7 +58,7 @@ function Locations() {
         },
         {
             image:Telemoundoaf,
-            title: 'Hangout',
+            title: 'Nike Gallery',
             location: 'Nigeria',
             description: 'Lagos, free lunch and beach. Lorem ipsum is a dummy text and dummy text',
             price: 300,

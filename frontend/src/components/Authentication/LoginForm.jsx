@@ -46,6 +46,7 @@ function LoginForm({isLoggedIn, setLoggedIn, setToken}) {
                 setLoggedIn(true)
                 localStorage.setItem('isLoggedIn', 'true')
                 setToken(response.data.token)
+                localStorage.setItem('jwtToken', response.data.token)
                 navigate('/')
             }else{
                 console.error('Sign up failed' );
