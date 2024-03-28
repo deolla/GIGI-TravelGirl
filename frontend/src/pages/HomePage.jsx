@@ -5,8 +5,16 @@ import ExploreAfrica from '../components/ExploreAfrica/ExploreAfrica';
 import ExploreNigeria from '../components/ExploreAfrica/ExploreNigeria';
 import Explore from '../components/Explore/Explore';
 import Testimonials from '../components/Testimonials/Testimonials';
+import BookNow from '../components/Booknow/BookNow';
+import { useState } from 'react';
 
-function Home() {
+function Home({handleBooknow}) {
+  const [booknow, setBooknow] = useState(false);
+
+  const handleBooknow = () => {
+    setBooknow(!BookNow);
+  }
+  
   return (
     <>
     <div>
@@ -18,8 +26,8 @@ function Home() {
         <HeroSection />
       </div>
       <Locations />
-      <ExploreAfrica />
-      <ExploreNigeria />
+      <ExploreAfrica handleBooknow={handleBooknow} />
+      <ExploreNigeria  handleBooknow={handleBooknow} />
       <Explore />
       <Testimonials />
     </div>

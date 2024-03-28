@@ -5,8 +5,10 @@ import Footer from "../components/Footer/Footer";
 // import SignupForm from '../components/Authentication/SignupForm';
 // import LoginForm from '../components/Authentication/LoginForm';
 import { Outlet } from 'react-router-dom';
+import BookNow from "../components/Booknow/BookNow";
 
 function AppLayout({navigation}) {
+  
 
   return (
     <>
@@ -14,6 +16,7 @@ function AppLayout({navigation}) {
       <main>
         <Outlet />
         <Footer />
+        <BookNow booknow={booknow} setBooknow={setBooknow} />
       </main>
       
     </>
