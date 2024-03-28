@@ -109,8 +109,11 @@ function LoginForm({isLoggedIn, setLoggedIn, setToken}) {
                     </div>
                     
 
-                    {/* image section */}
-                    <div className='w-1/2 sm:block hidden relative'> {/* Added relative positioning */}
+                    
+                </div>
+
+                {/* image section */}
+                <div className='w-1/2 sm:block hidden relative'> 
                         <img src={LoginImage} className='rounded-2xl h-full' alt="cover image" />
                         {/* text */}
                         <div className="absolute top-[20%] left-[40%] transform -translate-x-1/3 -translate-y-1/2 text-center text-white">
@@ -118,7 +121,7 @@ function LoginForm({isLoggedIn, setLoggedIn, setToken}) {
                             <p className="text-white text-xl font-normal">GIGI-TravelGirl got you covered</p> 
                         </div>
                     </div>
-                </div>
+
             </div>
         </div>
 
