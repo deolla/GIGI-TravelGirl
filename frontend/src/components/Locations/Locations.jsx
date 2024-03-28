@@ -65,6 +65,9 @@ function Locations() {
             type: 'Fun',
         },
     ]
+
+    const locationData = JSON.parse(localStorage.getItem('locationsData'))
+    // console.log(locationData)
   return (
     <div className="py-10 bg-gray-50">
 
@@ -74,8 +77,8 @@ function Locations() {
                 Upcoming Vacations</h1>
                 <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4'>
                     {
-                        locationsdata.map((item, index) => (
-                            <LocationsCard key={index} {...item} />
+                        locationData.map((item, index) => (
+                            <LocationsCard key={index} type={locationsdata[Math.floor(Math.random() * 3)].type} price={locationsdata[Math.floor(Math.random() * 3)].price} image={locationsdata[Math.floor(Math.random() * 3)].image} location={item.address_obj.city} title={item.name} description={'Lagos, free lunch and beach. Lorem ipsum is a dummy text and dummy text'} locationId={'/locations/' + item.location_id}/>
                     ))}
                 </div>
         </div>
