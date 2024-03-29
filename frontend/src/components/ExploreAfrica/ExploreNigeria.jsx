@@ -1,10 +1,9 @@
 import ExploreAfricaCard from './ExploreAfricaCard';
-import Taraba  from '../../assets/nigeria/taraba.jpg';
 import Kwara  from '../../assets/nigeria/kwara.jpg';
 import Yobe  from '../../assets/nigeria/yobe.jpg';
 import Abeokuta  from '../../assets/nigeria/abeokuta.jpg';
 
-function ExploreNigeria() {
+function ExploreNigeria({handleBooklocation }) {
   const exploreNigeriaData = [
     {
       image: Yobe,
@@ -35,7 +34,7 @@ function ExploreNigeria() {
         <p className="text-lg mb-8">Explore some of the most breathtaking destinations across Nigeria.</p>
         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4'>
           {exploreNigeriaData.map((item, index) => (
-            <ExploreAfricaCard key={index} {...item} />
+            <ExploreAfricaCard handleBooklocation={handleBooklocation}  key={index} {...item} />
           ))}
         </div>
       </div>
