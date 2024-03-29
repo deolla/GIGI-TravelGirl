@@ -6,8 +6,7 @@ import { useEffect } from "react";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-
-function ExploreAfrica() {
+function ExploreAfrica({handleBooklocation}) {
   useEffect(() => {
     AOS.init({
       disable: "phone",
@@ -65,7 +64,7 @@ description: 'One of Africa\'s greatest wildlife reserves, known for its excepti
                 <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4'>
                     {
                         exploreAfricaData.map((item, index) => (
-                            <ExploreAfricaCard key={index} {...item} />
+                            <ExploreAfricaCard handleBooklocation={handleBooklocation}  key={index} {...item} />
                     ))}
                 </div>
         </div>
