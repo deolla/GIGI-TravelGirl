@@ -11,6 +11,10 @@ import FlightRoute from "./routes/Flight.js";
 import morgan from "morgan";
 import bodyParser from "body-parser";
 import cors from "cors";
+import session from "express-session";
+import passport from 'passport';
+import GoogleRoute from './routes/googleauth.js'
+import MongoStore from 'connect-mongo';
 
 dotenv.config();
 const app = express();
@@ -29,6 +33,17 @@ mongoose.connection.on("error", (error) => {
   console.log(`Error connecting to MongoDB:', ${error.message}`);
 });
 
+// Intialize Passport and Passport Session middleware
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false,
+  cookie: process.env.NODE_ENV === "production" ? { secure: true } : { secure: false }, // eslint-disable-line
+  store: MongoStore.create({ mongoUrl: process.env.URI})
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+
 // Middleware setup
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -41,6 +56,9 @@ app.use("/location", LocationRoute);
 app.use("/api", AuthRoute);
 app.use("/flight", FlightRoute);
 app.use("/current", CurrentRoute);
+
+// google routes
+app.use("/auth", GoogleRoute);
 
 // Error handling middleware
 app.use((err, req, res, next) => {
