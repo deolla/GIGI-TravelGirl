@@ -1,3 +1,5 @@
+// server.js
+
 import mongoose from "mongoose";
 import express from "express";
 import dotenv from "dotenv";
@@ -12,8 +14,7 @@ import cors from "cors";
 
 dotenv.config();
 const app = express();
-const port = 5000;
-
+const port = process.env.PORT || 4000;
 
 async function connect() {
   try {
@@ -28,18 +29,26 @@ mongoose.connection.on("error", (error) => {
   console.log(`Error connecting to MongoDB:', ${error.message}`);
 });
 
-// middleware routes
+// Middleware setup
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan("dev"));
 app.use(cors());
+
+// Route setup
 app.use("/user", userRoute);
 app.use("/location", LocationRoute);
 app.use("/api", AuthRoute);
 app.use("/flight", FlightRoute);
 app.use("/current", CurrentRoute);
 
-// Listen to port 5000
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something broke!');
+});
+
+// Listen to port
 app.listen(port, () => {
   connect();
   console.log(`Server is running on port ${port}`);
