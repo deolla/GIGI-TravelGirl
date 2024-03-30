@@ -1,7 +1,7 @@
 import React from 'react';
 import { IoLocationSharp } from 'react-icons/io5';
 
-function ExploreAfricaCard({image, country, state, location, description}) {
+function ExploreAfricaCard({image, country, state, location, description, handleBooklocation}) {
   return (
     <div className='transition-all duration-500 hover:shadow-xl shadow-lg cursor-pointer"'>
 
@@ -24,15 +24,15 @@ function ExploreAfricaCard({image, country, state, location, description}) {
       </div>
 
       <div className="text-center mt-2">
-        <button className="bg-gradient-to-r from-primary to-secondary text-white font-bold py-2 px-4 rounded">
+        <button onClick={handleBooklocation} className="bg-gradient-to-r from-primary to-secondary text-white font-bold py-2 px-4 rounded">
           Book Now
         </button>
       </div>
 
 
-
     </div>
   )
 }
+
 
 export default ExploreAfricaCard
