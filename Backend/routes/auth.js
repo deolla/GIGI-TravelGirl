@@ -9,4 +9,5 @@ router.get('/logout', AuthController.logout);
 router.post('/forgetPassword', AuthController.forgetPassword);
 router.patch('/resetPassword/:token', AuthController.resetPassword);
 
+
 export default router;
