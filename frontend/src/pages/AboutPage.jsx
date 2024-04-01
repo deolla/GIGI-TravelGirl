@@ -8,16 +8,15 @@ function AboutPage() {
         </h1>
 
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur unde nesciunt sit autem fuga, commodi quisquam mollitia asperiores fugiat dignissimos voluptatibus quam sapiente aperiam, inventore tenetur voluptatum excepturi, nobis reprehenderit!
-          Consequatur sunt iusto culpa molestiae suscipit, sequi quidem, voluptas beatae officia quo corrupti vel distinctio, accusamus ab tempora aperiam. Nemo, illo! Laborum nemo assumenda fugiat aut velit eos nulla odio.
-          Reprehenderit voluptate quae mollitia soluta aperiam unde omnis beatae odit quaerat tempore doloribus doloremque ut, saepe, atque quisquam eum esse nemo tenetur fugiat inventore reiciendis. Architecto nobis a cum! Saepe?
-          Inventore atque quos qui possimus reiciendis, illo rerum explicabo quasi veritatis. Velit obcaecati cum nostrum. Quis libero hic consectetur iure omnis aperiam, doloribus, error sunt maiores illum facilis, maxime excepturi.
-          Non, natus ex veniam similique recusandae officiis! Velit minima quidem asperiores amet provident, numquam dolore rerum nemo fugiat, libero vero recusandae repellendus doloremque fugit! Dolores suscipit dolorum perspiciatis magnam! Autem!
-          Deserunt saepe fugit eligendi nihil rem perspiciatis doloribus animi. Quaerat quam quae, repellendus provident autem reprehenderit eum asperiores, animi minima sed mollitia itaque sapiente corporis, fugiat ad officiis nulla incidunt?
-          Distinctio, exercitationem labore soluta eum voluptatibus pariatur sunt minus hic, facere dolorem cum nostrum adipisci asperiores assumenda deleniti impedit repellat nam dolores earum alias dolorum unde? Libero cum sint aperiam!
-          Porro repudiandae est modi error esse aut! Architecto ipsa ex delectus sequi atque corporis, dolorum mollitia amet? Enim reiciendis iste placeat magnam. Quasi illo reiciendis sed quaerat cum, fugiat quam.
-          Nesciunt sapiente, veniam quasi inventore, voluptate ex optio dolor voluptatum dolore adipisci laborum deleniti dolorem odit unde sunt cumque ut magni molestiae quas consectetur atque? Maiores laborum et rerum vitae.
-          Modi temporibus qui inventore cumque, laboriosam earum tenetur reiciendis, vero ab quibusdam alias? Sunt similique obcaecati nulla ullam cupiditate exercitationem earum modi accusantium minima, sed voluptate possimus molestiae nesciunt omnis!
+        Gigi Travel girl is solely invested in exploring and appreciating every aspect of Tourism. Firstly, in her locality NIGERIA and then the rest of Africa and the World.
+
+She finds inspiration in immersing herself in the beautiful natural and man made locations she travels to..
+
+Embracing the different cultures and norms of each location with an open mind, learning, unlearning and relearning about life as she travels.
+
+She believes every location should not be compared with each other, because each location is unique to itself.
+ 
+GigiTravelgirl, shows you through her media content, that it is A-Okay to live a little!
         </p>
 
       </div>
