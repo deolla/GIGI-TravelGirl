@@ -5,19 +5,25 @@ import "slick-carousel/slick/slick-theme.css";
 const testimonialData = [
   {
     name: "Trevor Job",
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque reiciendis inventore iste ratione ex alias quis magni at optio",
+    text: "GIGI-TravelGirl exceeded all expectations! From the moment we inquired about our trip to the day we returned home, her professionalism and dedication to providing the best travel experience shone through. Can't wait to book our next adventure with her!",
     img: "https://picsum.photos/101/101",
   },
   {
     name: "Osi Keme",
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque reiciendis inventore iste ratione ex alias quis magni at optio",
+    text: "I've traveled with GIGI-TravelGirl multiple times, and each experience has been nothing short of amazing. The seamless planning and fantastic destinations keep me coming back for more adventures!",
     img: "https://picsum.photos/102/102",
   },
   {
 
     name: "Deosun Adeola",
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque reiciendis inventore iste ratione ex alias quis magni at optio",
+    text: "Booking with GIGI-TravelGirl was a game-changer for our family vacation! From finding the perfect destination to arranging all the details, her expertise and personalized service made our trip unforgettable.",
     img: "https://picsum.photos/103/103",
+  },
+  {
+
+    name: "Bovi Oke",
+    text: "GIGI-TravelGirl took care of everything, allowing us to fully immerse ourselves in the beauty of our destination. Her attention to detail and commitment to customer satisfaction made our honeymoon a dream come true.",
+    img: "https://picsum.photos/103/104",
   },
 ];
 
