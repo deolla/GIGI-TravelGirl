@@ -1,22 +1,31 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const testimonialData = [
   {
+    id: 1,
     name: "Trevor Job",
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque reiciendis inventore iste ratione ex alias quis magni at optio",
+    text: "GIGI-TravelGirl exceeded all expectations! From the moment we inquired about our trip to the day we returned home, her professionalism and dedication to providing the best travel experience shone through. Can't wait to book our next adventure with her!",
     img: "https://picsum.photos/101/101",
   },
   {
+    id: 2,
     name: "Osi Keme",
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque reiciendis inventore iste ratione ex alias quis magni at optio",
+    text: "I've traveled with GIGI-TravelGirl multiple times, and each experience has been nothing short of amazing. The seamless planning and fantastic destinations keep me coming back for more adventures!",
     img: "https://picsum.photos/102/102",
   },
   {
-
+    id: 3,
     name: "Deosun Adeola",
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque reiciendis inventore iste ratione ex alias quis magni at optio",
+    text: "Booking with GIGI-TravelGirl was a game-changer for our family vacation! From finding the perfect destination to arranging all the details, her expertise and personalized service made our trip unforgettable.",
     img: "https://picsum.photos/103/103",
+  },
+  {
+    id: 4,
+    name: "Bovi Oke",
+    text: "GIGI-TravelGirl took care of everything, allowing us to fully immerse ourselves in the beauty of our destination. Her attention to detail and commitment to customer satisfaction made our honeymoon a dream come true.",
+    img: "https://picsum.photos/103/104",
   },
 ];
 
@@ -65,15 +74,11 @@ const Testimonials = () => {
         <div className="container">
           {/* Header section */}
           <div className="text-center mb-20 max-w-[400px] mx-auto">
-            <p className="text-sm bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
-              Testimonial
-            </p>
-            <h1 className="text-3xl font-bold">Testimonial</h1>
+            
+            <h1 className="text-3xl font-bold">What customers say</h1>
             <p className="text-xs text-gray-400">
-              {" "}
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero
-              nesciunt explicabo a! Laborum delectus aliquam labore, earum rerum
-              quam! Nulla?
+            
+              Read the testimonials from satisfied customers who had amazing travel experiences with GIGI-TravelGirl.
             </p>
           </div>
           {/* testimonial section */}
