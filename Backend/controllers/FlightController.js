@@ -32,16 +32,16 @@ class FlightController {
   static async getFlights(req, res, next) {
     try {
       const to = await fetch(`${iataUrl}?city=${req.body.to}`, iataHead);
+      const toJson = await to.json();
+      // console.log(toJson);
 
       const from = await fetch(`${iataUrl}?city=${req.body.from}`, iataHead);
-      const toJson = await to.json();
       const fromJson = await from.json();
+      // console.log(fromJson);
+      // console.log(params);
       params.location_departure = fromJson[0].iata;
       params.location_arrival = toJson[0].iata;
       params.date_departure = req.body.date;
-      // console.log(toJson);
-      // console.log(fromJson);
-      // console.log(params);
       const ans = await fetch(
         "https://priceline-com-provider.p.rapidapi.com/v1/flights/search?" +
           new URLSearchParams(params),
