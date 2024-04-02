@@ -1,29 +1,69 @@
 import Location from "../models/Location.js";
-
+import redisClient from "../webCache/RedisClient.js";
 import fetch from "node-fetch";
+// import { unflattenObject } from "../utilities/Object";
 
-const params = {
-  latLong: "-33.8670522,151.1957362",
-  key: "D5D0E44287D94F269F2B39F4F5F7B039",
-  language: "en",
+const unflattenObject = function (obj) {
+  return Object.keys(obj).reduce((acc, key) => {
+    const keys = key.split(".");
+    let temp = acc;
+    for (let i = 0; i < keys.length; i++) {
+      if (i === keys.length - 1) {
+        temp[keys[i]] = JSON.parse(obj[key]);
+      } else {
+        temp[keys[i]] = temp[keys[i]] || {};
+        temp = temp[keys[i]];
+      }
+    }
+    return acc;
+  }, {});
 };
 
-const url = "https://api.content.tripadvisor.com/api/v1/location/nearby_search";
+const params = {
+  location: "london",
+  adults: "1",
+  children: "0",
+  infants: "0",
+  pets: "0",
+  page: "1",
+  currency: "USD",
+  checkin: new Date().toISOString().split("T")[0],
+  checkout: new Date().toISOString().split("T")[0],
+};
+
+const url = "https://airbnb13.p.rapidapi.com/search-location";
 
 const options = {
   method: "GET",
-  headers: { accept: "application/json" },
+  headers: {
+    "X-RapidAPI-Key": "580bf7e72cmsh6c885dddf72feafp16c6ffjsn35c8129b0f19",
+    "X-RapidAPI-Host": "airbnb13.p.rapidapi.com",
+  },
 };
 
 const getLocations = async (req, res, next) => {
   try {
-    params.latLong = req.query.latLong;
+    params.location = req.query.location;
+    // console.log("bbbbbbbbbbbbbbbbbbbbbbbbbbb");
+    // if (await redisClient.hashExists(params.location)) {
+    //   console.log("getting from redis");
+    //   const data = await redisClient.hgetall(params.location);
+    //   console.log("---------------------------");
+    //   const dataJson = unflattenObject(data);
+    //   console.log(dataJson);
+    //   console.log("--------------------------------");
+    //   return res.status(200).json(dataJson);
+    // }
     const compUrl = url + "?" + new URLSearchParams(params);
     const response = await fetch(compUrl, options);
     const result = await response.json();
-    res.status(200).json(result);
+    console.log("getting from api");
+    // if (response.ok) {
+    //   await redisClient.hmset(params.location, result);
+    // }
+    return res.status(200).json(result);
   } catch (err) {
-    res.status(404).json({ error: "not found. Check your coordinates" });
+    console.log(err);
     next(err);
   }
 };
@@ -31,8 +71,8 @@ const getLocations = async (req, res, next) => {
 const getLocation = async (req, res, next) => {
   try {
     const id = req.params.id;
-    const oneUrl = `https://api.content.tripadvisor.com/api/v1/location/${id}/details`;
-    const compUrl = oneUrl + "?" + new URLSearchParams(params);
+    const oneUrl = "https://airbnb19.p.rapidapi.com/api/v2/getPropertyDetails";
+    const compUrl = oneUrl + "?" + new URLSearchParams({ propertyId: id });
     const response = await fetch(compUrl, options);
     const result = await response.json();
     res.status(200).json(result);
