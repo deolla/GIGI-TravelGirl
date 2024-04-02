@@ -7,13 +7,14 @@ import Locations from './pages/Locations';
 import FlightsPage from './pages/FlightBooking';
 import SignupPage from './pages/SignupPage';
 import LoginPage from './pages/LoginPage';
-import LocationsDetails from './components/Locations/LocationsDetails';
+// import LocationsDetails from './components/Locations/LocationsDetails';
 import SearchResult from './pages/SearchResult';
 import UserPage from './pages/UserPage';
+import LocationDetailsPage from './pages/LocationsDetailsPage';
+import getCurrentUser from './components/helpers/current_user';
 // import React from 'react';
 // import PageNotFound from './pages/PageNotFound';
-
-
+import axios from 'axios';
 
 function App() {
 
@@ -35,12 +36,59 @@ function App() {
 
 
 
+  function showPosition(position) {
+    const latitude = position.coords.latitude;
+    const longitude = position.coords.longitude;
+    localStorage.setItem('latitude', latitude)
+    localStorage.setItem('longitude', longitude)
+  }
+  
+  function showError(error) {
+    switch (error.code) {
+      case error.PERMISSION_DENIED:
+        console.log("User denied the request for Geolocation.");
+        break;
+      case error.POSITION_UNAVAILABLE:
+        console.log("Location information is unavailable.");
+        break;
+      case error.TIMEOUT:
+        console.log("The request to get user location timed out.");
+        break;
+    }
+  }
+
+
+
+  function getLocation() {
+    if (navigator.geolocation) {
+      return navigator.geolocation.getCurrentPosition(showPosition, showError);
+    } else {
+      console.log("Geolocation is not supported by this browser.");
+    }
+  }
+
+  getLocation()
+  useEffect( () => {
+    const Tok = localStorage.getItem('jwtToken')
+    axios.get('http://localhost:5000/location', { params: {location: `lagos`},  headers: {
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+      'Authorization': `Bearer ${Tok}`
+        }}).then(response => {
+          if (response.status === 200) {
+            console.log(response.data)
+            localStorage.setItem('locationsData', JSON.stringify(response.data.results) || [{}])
+          }
+        })
+  }, [Token])
+
+
   return (
     
     <Routes>
       <Route path="/" element={<AppLayout navigation={navigate}/>}>
           <Route index element={<HomePage />} />
-          <Route path="/locations/:id" element={<LocationsDetails />} />
+          <Route path="/locations/:id" element={<LocationDetailsPage />} />
           <Route path="/searchresult" element={<SearchResult />} />
           <Route path="/locations" element={<Locations navigate={navigate}/>} />
           <Route path="/about" element={<AboutPage />} />

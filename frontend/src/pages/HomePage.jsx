@@ -5,8 +5,15 @@ import ExploreAfrica from '../components/ExploreAfrica/ExploreAfrica';
 import ExploreNigeria from '../components/ExploreAfrica/ExploreNigeria';
 import Explore from '../components/Explore/Explore';
 import Testimonials from '../components/Testimonials/Testimonials';
+import { useState } from 'react';
+import BookLocation from '../components/BookLocation/BookLocation';
 
-function Home() {
+function HomePage() {
+  const [booklocation, setBooklocation] = useState(false);
+  
+  const handleBooklocation = () => {
+    setBooklocation(!booklocation);
+  }
   return (
     <>
     <div>
@@ -18,13 +25,14 @@ function Home() {
         <HeroSection />
       </div>
       <Locations />
-      <ExploreAfrica />
-      <ExploreNigeria />
+      <ExploreAfrica handleBooklocation={handleBooklocation} />
+      <ExploreNigeria handleBooklocation={handleBooklocation} />
       <Explore />
       <Testimonials />
+      <BookLocation booklocation={booklocation} setBooklocation={setBooklocation} />
     </div>
     </>
   )
 }
 
-export default Home
+export default HomePage

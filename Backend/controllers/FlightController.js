@@ -32,16 +32,16 @@ class FlightController {
   static async getFlights(req, res, next) {
     try {
       const to = await fetch(`${iataUrl}?city=${req.body.to}`, iataHead);
+      const toJson = await to.json();
+      // console.log(toJson);
 
       const from = await fetch(`${iataUrl}?city=${req.body.from}`, iataHead);
-      const toJson = await to.json();
       const fromJson = await from.json();
+      // console.log(fromJson);
+      // console.log(params);
       params.location_departure = fromJson[0].iata;
       params.location_arrival = toJson[0].iata;
       params.date_departure = req.body.date;
-      // console.log(toJson);
-      // console.log(fromJson);
-      // console.log(params);
       const ans = await fetch(
         "https://priceline-com-provider.p.rapidapi.com/v1/flights/search?" +
           new URLSearchParams(params),
@@ -49,9 +49,25 @@ class FlightController {
       );
       const response = await ans.json();
       // console.log(response.data.listings);
+      const data = response.data.listings.map((x) => {
+        return {
+          airline: x.airlines[0].name,
+          logo: x.airlines[0].image,
+          arrivalTime: x.slices[0].segments[0].arrivalInfo.time.dateTime,
+          to: x.slices[0].segments[0].arrivalInfo.airport.code,
+          departureTime: x.slices[0].segments[0].departInfo.time.dateTime,
+          from: x.slices[0].segments[0].departInfo.airport.code,
+          price: x.totalPriceWithDecimal.price,
+          url: `https://booking.kayak.com/flights/${
+            x.slices[0].segments[0].arrivalInfo.airport.code
+          }-${x.slices[0].segments[0].departInfo.airport.code}/${
+            x.slices[0].segments[0].departInfo.time.dateTime.split("T")[0]
+          }?sort=bestflight_a`,
+        };
+      });
 
       if (ans.ok) {
-        res.json(response.data.listings);
+        res.json(data);
       } else {
         res.status(404).json({ message: "cant help" });
       }

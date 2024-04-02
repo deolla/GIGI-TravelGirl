@@ -2,11 +2,11 @@ import { IoLocationSharp } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-function LocationsCard({image, title, location, description, price, type}) {
+function LocationsCard({image, title, location, description, price, type, locationId}) {
   return (
     <div className=" transition-all duration-500 hover:shadow-xl shadow-lg cursor-pointer">
       <div className='overflow-hidden'>
-        <img src={image}
+        <img src={image[0]}
         alt='places for vacation'
         className='object-cover w-full h-[220px] mx-auto hover:scale-110 hover:skew-x-2 transition duration-700'
         />
@@ -29,7 +29,7 @@ function LocationsCard({image, title, location, description, price, type}) {
             <p className='text-2xl font-bold'>${price}</p>
           </div>
       </div>
-      <Link to="/locationsdetails">
+      <Link to={locationId} >
       <button className='bg-gradient-to-r from-primary to-secondary text-white font-bold py-2 px-4 rounded'>
         DETAILS
       </button>
@@ -46,6 +46,7 @@ LocationsCard.propTypes = {
     description: PropTypes.string,
     price: PropTypes.number,
     type: PropTypes.string,
+    locationId: PropTypes.string,
 }
 
 export default LocationsCard

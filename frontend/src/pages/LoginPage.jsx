@@ -1,5 +1,4 @@
 import LoginForm from "../components/Authentication/LoginForm";
-// import PropTypes from 'prop-types';
 
 
 // eslint-disable-next-line react/prop-types

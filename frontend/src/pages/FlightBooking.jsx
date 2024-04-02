@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 // import GetFlights from "../components/Flights/FlightTabs"
 import SearchBar from "../components/Flights/SearchBar"
 import SwitchToLogin from "../components/helpers/auth"
