@@ -1,5 +1,4 @@
 // server.js
-
 import mongoose from "mongoose";
 import express from "express";
 import dotenv from "dotenv";
@@ -8,6 +7,7 @@ import AuthRoute from "./routes/auth.js";
 import LocationRoute from "./routes/location.js";
 import CurrentRoute from "./routes/current.js";
 import FlightRoute from "./routes/Flight.js";
+import BookRoute from "./routes/bookings.js";
 import morgan from "morgan";
 import bodyParser from "body-parser";
 import cors from "cors";
@@ -15,6 +15,7 @@ import session from "express-session";
 import passport from 'passport';
 import GoogleRoute from './routes/googleauth.js'
 import MongoStore from 'connect-mongo';
+
 
 dotenv.config();
 const app = express();
@@ -56,6 +57,7 @@ app.use("/location", LocationRoute);
 app.use("/api", AuthRoute);
 app.use("/flight", FlightRoute);
 app.use("/current", CurrentRoute);
+app.use("/booking", BookRoute);
 
 // google routes
 app.use("/auth", GoogleRoute);

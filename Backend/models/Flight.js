@@ -8,9 +8,8 @@ const flightSchema = new Schema({
   destinationCode: { type: String },
   depature: [{ type: Date, required: true }],
   arrival: [{ type: Date, required: true }],
-
+  price: { type: Number, required: true },
   //   events: [{ type: Schema.Types.ObjectId, ref: "Event" }],
-  logo: { type: String },
 });
 flightSchema.index({ startDate: 1 });
 
