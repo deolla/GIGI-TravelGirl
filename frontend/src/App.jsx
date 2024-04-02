@@ -11,6 +11,7 @@ import LoginPage from './pages/LoginPage';
 import SearchResult from './pages/SearchResult';
 import UserPage from './pages/UserPage';
 import LocationDetailsPage from './pages/LocationsDetailsPage';
+import getCurrentUser from './components/helpers/current_user';
 // import React from 'react';
 // import PageNotFound from './pages/PageNotFound';
 import axios from 'axios';
@@ -43,21 +44,17 @@ function App() {
   }
   
   function showError(error) {
-    // switch (error.code) {
-    //   case error.PERMISSION_DENIED:
-    //     console.log("User denied the request for Geolocation.");
-    //     break;
-    //   case error.POSITION_UNAVAILABLE:
-    //     console.log("Location information is unavailable.");
-    //     break;
-    //   case error.TIMEOUT:
-    //     console.log("The request to get user location timed out.");
-    //     break;
-    //   case error.UNKNOWN_ERROR:
-    //     console.log("An unknown error occurred.");
-    //     break;
-    // }
-    console.log(error)
+    switch (error.code) {
+      case error.PERMISSION_DENIED:
+        console.log("User denied the request for Geolocation.");
+        break;
+      case error.POSITION_UNAVAILABLE:
+        console.log("Location information is unavailable.");
+        break;
+      case error.TIMEOUT:
+        console.log("The request to get user location timed out.");
+        break;
+    }
   }
 
 
@@ -72,17 +69,15 @@ function App() {
 
   getLocation()
   useEffect( () => {
-    const lat = localStorage.getItem('latitude')
-    const lon = localStorage.getItem('longitude')
     const Tok = localStorage.getItem('jwtToken')
-    axios.get('http://localhost:5000/location', { params: {latLong: `${lat},${lon}`},  headers: {
+    axios.get('http://localhost:5000/location', { params: {location: `lagos`},  headers: {
       'Content-Type': 'application/json',
       'Access-Control-Allow-Origin': '*',
       'Authorization': `Bearer ${Tok}`
         }}).then(response => {
           if (response.status === 200) {
-            console.log(response.data.data)
-            localStorage.setItem('locationsData', JSON.stringify(response.data.data))
+            console.log(response.data)
+            localStorage.setItem('locationsData', JSON.stringify(response.data.results) || [{}])
           }
         })
   }, [Token])

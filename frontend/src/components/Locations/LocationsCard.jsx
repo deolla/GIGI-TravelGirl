@@ -6,7 +6,7 @@ function LocationsCard({image, title, location, description, price, type, locati
   return (
     <div className=" transition-all duration-500 hover:shadow-xl shadow-lg cursor-pointer">
       <div className='overflow-hidden'>
-        <img src={image}
+        <img src={image[0]}
         alt='places for vacation'
         className='object-cover w-full h-[220px] mx-auto hover:scale-110 hover:skew-x-2 transition duration-700'
         />
