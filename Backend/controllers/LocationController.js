@@ -19,6 +19,10 @@ const unflattenObject = function (obj) {
   }, {});
 };
 
+const currentDate = new Date();
+
+// Add one day to the current date
+currentDate.setDate(currentDate.getDate() + 1);
 const params = {
   location: "london",
   adults: "1",
@@ -27,23 +31,32 @@ const params = {
   pets: "0",
   page: "1",
   currency: "USD",
-  checkin: new Date().toISOString().split("T")[0],
-  checkout: new Date().toISOString().split("T")[0],
+  checkin: currentDate.toISOString().split("T")[0],
+  checkout: currentDate.toISOString().split("T")[0],
 };
 
-const url = "https://airbnb13.p.rapidapi.com/search-location";
+let url;
 
 const options = {
   method: "GET",
   headers: {
-    "X-RapidAPI-Key": "580bf7e72cmsh6c885dddf72feafp16c6ffjsn35c8129b0f19",
+    "X-RapidAPI-Key": "546ccc62acmsh774954c1d386f72p1e31c3jsn43d51de1e1e7",
     "X-RapidAPI-Host": "airbnb13.p.rapidapi.com",
   },
 };
 
 const getLocations = async (req, res, next) => {
   try {
-    params.location = req.query.location;
+    if (req.query.type === "geo") {
+      url = "https://airbnb13.p.rapidapi.com/search-geo";
+      params.ne_lat = req.query.lat;
+      params.sw_lat = req.query.lat;
+      params.ne_lon = req.query.lon;
+      params.sw_lon = req.query.lon;
+    } else {
+      url = "https://airbnb13.p.rapidapi.com/search-location";
+      params.location = req.query.location;
+    }
     // console.log("bbbbbbbbbbbbbbbbbbbbbbbbbbb");
     // if (await redisClient.hashExists(params.location)) {
     //   console.log("getting from redis");
@@ -54,6 +67,7 @@ const getLocations = async (req, res, next) => {
     //   console.log("--------------------------------");
     //   return res.status(200).json(dataJson);
     // }
+    console.log(url);
     const compUrl = url + "?" + new URLSearchParams(params);
     const response = await fetch(compUrl, options);
     const result = await response.json();

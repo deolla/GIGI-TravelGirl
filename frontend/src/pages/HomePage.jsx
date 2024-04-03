@@ -7,6 +7,7 @@ import Explore from '../components/Explore/Explore';
 import Testimonials from '../components/Testimonials/Testimonials';
 import { useState } from 'react';
 import BookLocation from '../components/BookLocation/BookLocation';
+import allLocations from '../components/helpers/allLocations';
 
 function HomePage() {
   const [booklocation, setBooklocation] = useState(false);
@@ -14,6 +15,7 @@ function HomePage() {
   const handleBooklocation = () => {
     setBooklocation(!booklocation);
   }
+  allLocations('lagos Nigeria', 'geo')
   return (
     <>
     <div>

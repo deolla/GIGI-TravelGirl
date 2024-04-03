@@ -5,7 +5,8 @@ import 'aos/dist/aos.css';
 import { useEffect } from "react";
 import axios from "axios";
 import FlightTabs from './FlightTabs'
-function SearchBar() {    
+import LogoutFunc from "../Authentication/Logout";
+function SearchBar({navigation}) {    
 
     const [budgetValue, setBudgetvalue] = useState(50);
     const [apiData, setApiData] = useState([]);
@@ -30,8 +31,6 @@ useEffect(() => {
       [name]: value
     });
   };
-
-
 
   useEffect(() => {
     // Load data from local storage when the component mounts
@@ -69,10 +68,14 @@ useEffect(() => {
                 localStorage.setItem('cardsData',JSON.stringify(response.data))
                 setApiData(response.data)
                 console.log(response.data)
-            }else{
+            }
+            else{
                 console.error('failed to get flight data' );
             }
         }).catch (error =>{
+            if (error.response.status === 403) {
+                LogoutFunc(navigation)
+            }
            console.error('error with flight data', error);
         })
         setFormData({

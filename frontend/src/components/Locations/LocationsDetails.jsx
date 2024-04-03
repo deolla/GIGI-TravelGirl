@@ -8,8 +8,9 @@ import { useEffect, useState, useRef } from 'react';
 import getLocation from '../helpers/currentLocation';
 import  getLocalLocation from '../helpers/localLocation';
 import kw from '../../assets/nigeria/kwara.jpg'
+import bookHotel from '../helpers/bookHotel';
 
-function LocationsDetails({locationId}) {
+function LocationsDetails({locationId, navigation}) {
   // localStorage.removeItem('current_location')  // Placeholder
   // const locationDetails = {
   //   title: 'Mock Location Title',
@@ -90,6 +91,13 @@ function LocationsDetails({locationId}) {
     
       const handleSubmit = (e) => {
         e.preventDefault();
+        try{
+          bookHotel({checkinDate,checkoutDate, totalPrice: price.total, placeName: name})
+          navigation('/')
+        }
+        catch{
+          console.error('error Booking app')
+        }
         // Add your booking submission logic here
       };
 
@@ -135,7 +143,7 @@ function LocationsDetails({locationId}) {
                   </div>
 
                   <button
-                    onClick={() => handleRedirect('google.com')}
+                    type='submit'
                     className="bg-gradient-to-r from-primary to-secondary text-white font-bold py-2 px-4 rounded'"
                     >
                     Book Now
