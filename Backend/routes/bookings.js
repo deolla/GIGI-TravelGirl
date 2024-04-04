@@ -6,24 +6,34 @@ import sendHotelBookingConfirmationMessage from "../middleware/emailHotel.js";
 // import sendFlightBookingConfirmationMessage from '../middleware/emailbooking.js'
 import uuid4 from "uuid4";
 import stripe from "stripe";
-import BookHotel from "../models/bookhotel.js";
+// import BookHotel from "../models/bookhotel.js";
 import User from "../models/user.js";
 import authenticate from "../middleware/authenticate.js";
 import BookHotel from "../models/bookhotel.js";
-import User from "../models/user.js";
-const stripeInstance = stripe(process.env.STRIPE_SECRET_KEY);
-
+import BookFlight from "../models/bookflight.js";
+import dotenv from "dotenv";
+dotenv.config();
+// import User from "../models/user.js";
+const stripeApiKey = process.env.STRIPE_SECRET_KEY;
+const stripeInstance = stripe(stripeApiKey);
 const router = express.Router();
 // Use body-parser middleware to parse JSON bodies
 router.use(bodyParser.json());
 
 // Route for handling hotel Booking confirmation/notifications.
-router.post("/hotel", async (req, res) => {
+router.post("/hotel", authenticate, async (req, res) => {
   // Extract data from the request body
-  const { email, userId, checkinDate, checkoutDate, totalPrice, token } =
-    req.body;
+  const { checkinDate, checkoutDate, totalPrice, token, placeName } = req.body;
+  const { email, userId } = req.userData;
 
-  if (!email || !userId || !checkinDate || !checkoutDate || !totalPrice) {
+  if (
+    !email ||
+    !userId ||
+    !checkinDate ||
+    !checkoutDate ||
+    !totalPrice ||
+    !placeName
+  ) {
     return res.status(400).json({ message: "Missing required fields" });
   }
 
@@ -68,6 +78,7 @@ router.post("/hotel", async (req, res) => {
           checkinDate,
           checkoutDate,
           totalPrice,
+          placeName,
         });
         return res.status(200).json({ message: "Hotel booked successfully" });
       } catch (error) {
@@ -87,26 +98,19 @@ router.post("/hotel", async (req, res) => {
 });
 
 // Booking a flight
-router.post("/flight", async (req, res) => {
+router.post("/flight", authenticate, async (req, res) => {
   // Extract data from the request body
-  const {
-    email,
-    userId,
-    flightNumber,
-    departureDate,
-    seatClass,
-    totalPrice,
-    token,
-  } = req.body;
-
+  const { to, from, departureTime, arrivalTime, price, token } = req.body;
+  const { email, userId } = req.userData;
   if (
-    email ||
+    !email ||
     !userId ||
-    !flightNumber ||
-    !departureDate ||
-    !seatClass ||
+    !departureTime ||
+    !arrivalTime ||
+    !price ||
     !token ||
-    !totalPrice
+    !to ||
+    !from
   ) {
     return res.status(400).json({ message: "Missing required fields" });
   }
@@ -117,7 +121,7 @@ router.post("/flight", async (req, res) => {
     });
     const payment = await stripeInstance.charges.create(
       {
-        amount: totalPrice * 100,
+        amount: price * 100,
         currency: "usd",
         customer: customer.id,
         receipt_email: token.email,
@@ -136,21 +140,23 @@ router.post("/flight", async (req, res) => {
 
         const name = user.fullName;
         const newFlightBooking = new BookFlight({
-          email,
           userId,
-          flightNumber,
-          departureDate,
-          seatClass,
-          totalPrice,
+          to,
+          from,
+          departureTime,
+          arrivalTime,
+          price,
         });
         await newFlightBooking.save();
         await sendFlightBookingConfirmationMessage({
           name,
           email,
           userId,
-          flightNumber,
-          departureDate,
-          seatClass,
+          to,
+          from,
+          departureTime,
+          arrivalTime,
+          price,
         });
         return res.status(200).json({ message: "Flight booked successfully" });
       } catch (error) {
@@ -167,3 +173,4 @@ router.post("/flight", async (req, res) => {
       .json({ message: "An error occurred while processing payment" });
   }
 });
+export default router;

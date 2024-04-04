@@ -2,9 +2,16 @@ import { PropTypes } from 'prop-types'
 import getFlight from "../helpers/current_flight";
 import { useState } from 'react';
 import bookFlight from '../helpers/bookFlights';
+import StripeCheckout from 'react-stripe-checkout';
 
 function FlightDetails({ flightId, navigation }) {
   const curFlight = getFlight(flightId)
+  const {from, to, departureTime,arrivalTime, price} = curFlight
+  const onToken = (token) => {
+    console.log(token)
+    bookFlight({from, to, departureTime,arrivalTime, price, token})
+    navigation('/')
+  }
 
   const handleSubmit = () => {
     const {from, to, departureTime,arrivalTime, price} = curFlight
@@ -45,13 +52,12 @@ function FlightDetails({ flightId, navigation }) {
           <p className="text-gray-600">Amount</p>
           <p className="text-lg font-semibold">${curFlight.price}</p>
         </div>
-          <button
-          onClick={handleSubmit}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            
-            >
-            Book Now
-          </button>
+        <StripeCheckout
+                    amount={parseInt(price) * 100}
+                    currency='USD'
+                    token={onToken}
+                    stripeKey="pk_test_51P145ZCGlD81jPCTGNnfglg2PEYvgWp6puXhtCyTY6yripd0dO6SYiAXtx7Ar4SpiqnvDxXXZv1g7523QhfvUVBC00AmDqXutX"
+          />
       </div>
     </div>
   );

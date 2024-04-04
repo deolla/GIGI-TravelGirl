@@ -1,5 +1,5 @@
 function getFlight(flight) {
-    const val = localStorage.getItem('cardsData')
+    const val = sessionStorage.getItem('cardsData')
     if (val) {
         const newVal = JSON.parse(val)
         for (const key of newVal) {

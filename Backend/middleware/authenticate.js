@@ -10,6 +10,7 @@ const authenticate = (req, res, next) => {
     console.log("gotten tokens .............");
 
     req.userData = decoded;
+    // console.log(req.userData);
     next();
   } catch (error) {
     if (error.name === "TokenExpiredError") {

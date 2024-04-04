@@ -15,7 +15,7 @@ function HomePage() {
   const handleBooklocation = () => {
     setBooklocation(!booklocation);
   }
-  allLocations('lagos Nigeria', 'geo')
+  allLocations('lagos Nigeria')
   return (
     <>
     <div>
