@@ -7,6 +7,7 @@ const bookFlightSchema = new Schema({
     flightNumber: { type: String, required: true },
     departureDate: { type: Date, required: true },
     seatClass: { type: String, required: true },
+    totalPrice: { type: Number, required: true }
     // departureAirport: { type: String, required: true },
     // arrivalAirport: { type: String, required: true }
 });
