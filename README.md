@@ -4,7 +4,7 @@
 
 Demo ![demo-1]()
 
-![VIDE0](https://youtu.be/0kLnL0Ihmtk)
+![VIDE0](https://www.youtube.com/watch?v=0kLnL0Ihmtk)
 
 ## Welcome.
 
