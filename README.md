@@ -171,7 +171,7 @@ Welcome to GIGI-TravelGirl!! Here is a step-by-step guide on how to make the mos
 
 ## Contributing
 
-![Contributions](./img/image_processing20220116-1843-ezf263.gif)
+(![Contributions](./img/image.png))
 
 We welcome contributions from the community to help improve and enhance our Travel and Tourism Application. Whether you're a developer, designer, or travel enthusiast, there are many ways to contribute:
 
