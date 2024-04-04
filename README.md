@@ -4,7 +4,7 @@
 
 Demo ![demo-1]()
 
-[![Video Demo](./img/Screenshot%202024-04-04%20224600.png)](https://www.youtube.com/watch?v=0kLnL0Ihmtk)
+[![Video Demo](./img/Screenshot%202024-04-04%20224600.png)](https://drive.google.com/file/d/1Sc9srYqJ9mMMO_7xDGlSUKOl5TrmdSP1/view?usp=sharing)
 
 ## Welcome.
 
