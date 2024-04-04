@@ -29,6 +29,7 @@ Welcome to GIGI TravelGirl, your travel and tourism platform designed for travel
   - [Usage](#usage)
   - [Contributing](#contributing)
   - [License](#license)
+- [Screenshots](#screenshots)
   - [Contact Us](#contact-us)
 
 # About GIGI-TravelGirl.
@@ -72,6 +73,7 @@ making GIGI-TravelGirl better.
 - Responsible for flight, location and its API routes respectively.
 
 ## Technologies
+
 # Front-End
 
 - React.js: A JavaScript library for interacting and building user interfaces.
@@ -144,21 +146,27 @@ Follow these steps to setup GIGI-TravelGirl locally on your server. For develope
    ```
 
 ## Usage
+
 Welcome to GIGI-TravelGirl!! Here is a step-by-step guide on how to make the most out of the travel and tourism platform.
 
-  1. Sign Up:
+1. Sign Up:
+
    - Create a new account by signing up on our platform. Provide the necessary information.
-  
-  2. Book a flight or an Hotel:
-   - Browse through our diverse collection of hotels or check out different flights details for more information. 
-  
-  3. Select Location:
+
+2. Book a flight or an Hotel:
+
+   - Browse through our diverse collection of hotels or check out different flights details for more information.
+
+3. Select Location:
+
    - Choose your desired location for your next adventure.
 
-  4. Process Payment:
+4. Process Payment:
+
    - Complete the seamless payment process. We support secure online payments to make your transaction hassle-free.
 
-  5. Enjoy your travels
+5. Enjoy your travels
+
    - Cruise through the city or embark on an adventure—GIGI-TravelGirl is your companion for a memorable adventures.
 
 ## Contributing
@@ -180,6 +188,12 @@ GIGI TravelGirl is licensed under the [MIT License](./LICENSE), making it free t
 We encourage developers, enthusiasts, and contributors to explore, enhance, and share GIGI-TravelGirl, fostering a spirit of innovation and inclusivity.
 
 For more information, please refer to the [MIT License](./LICENSE)
+
+# Screenshots
+
+![img](./img/WhatsApp%20Image%202024-04-04%20at%2021.49.35_b6d8f309.jpg)
+
+![img](./img/WhatsApp%20Image%202024-04-04%20at%2021.48.20_cf182831.jpg)
 
 ## Contact Us
 
