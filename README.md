@@ -1,21 +1,44 @@
-# GIGI TravelGirl
+# GIGI TravelGirl: Travel and Tourism Website.
+
+## Your Goto Girl for anything Travel and Tourism.
+
+Demo ![demo-1]()
+
+![VIDE0](https://drive.google.com/file/d/1ZqxpwKrmiaTNodkCyxL_Fz_Tja74f42m/view?usp=drive_link)
+
+## Welcome.
 
 ![GIGI TAVELGIRL](./img/IMG-20240324-WA0011.jpg)
 
-Welcome to our GIGI TravelGirl Travel and Tourism Application! This Application is designed to provide users with a comprehensive platform for exploring and planning their travel adventures across various destinations. Whether you're seeking inspiration for your next trip, researching travel tips, or booking accommodations and activities, our website aims to make your travel experience enjoyable and hassle-free.
+Welcome to GIGI TravelGirl, your travel and tourism platform designed for travellers, explorer and tourist seeking ultimate travelling experience, adventures and exploration, Whether you're embarking on an adventure or you want to explore a new country GIGI-TravelGirl is here to elevates your travels😉.
 
 ## Table of Contents
 
-- [GIGI TravelGirl](#gigi-travelgirl)
+- [GIGI TravelGirl: Travel and Tourism Website.](#gigi-travelgirl-travel-and-tourism-website)
+  - [Your Goto Girl for anything Travel and Tourism.](#your-goto-girl-for-anything-travel-and-tourism)
+  - [Welcome.](#welcome)
   - [Table of Contents](#table-of-contents)
-  - [Features](#features)
+- [About GIGI-TravelGirl.](#about-gigi-travelgirl)
+  - [Team and Roles](#team-and-roles)
+- [Features](#features)
   - [Technologies Used](#technologies-used)
   - [Getting Started](#getting-started)
   - [Contributing](#contributing)
   - [License](#license)
   - [Contact Us](#contact-us)
 
-## Features
+# About GIGI-TravelGirl.
+
+GIGI-TravelGirl offers a seamless, flexible, and user-friendly interface for travel and tourism. This README file includes all of the features, guides, insights, technologies and how you can contribute to
+making GIGI-TravelGirl better.
+
+## Team and Roles
+
+**Adeosun Oluwaseyi(Back-end Developer)**
+
+- Role: Back-end Developer focuse on Backend.
+
+# Features
 
 ![Features](./img/Travel-website-features.webp)
 
@@ -39,7 +62,7 @@ Our Travel and Tourism Application offers a range of features to cater to the di
 
 Our Travel and Tourism Application is built using modern web technologies to ensure a seamless and intuitive user experience:
 
-- **Frontend**: React.js Tai
+- **Frontend**: React.js Tailwind
 - **Backend**: Node.js, Express.js, MongoDB
 - **Authentication**: JSON Web Tokens (JWT), bcrypt
 - **API Integrations**: Google Maps API
