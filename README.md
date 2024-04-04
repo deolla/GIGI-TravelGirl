@@ -2,7 +2,7 @@
 
 ## Your Goto Girl for anything Travel and Tourism.
 
-![demo-1](./img/Screenshot%202024-04-04%20225417.png)(https://drive.google.com/file/d/18rGrXlcvQ2vE9ysSjNrjPK3yQp4oFXdF/view?usp=sharing)
+[![demo-1](./img/Screenshot%202024-04-04%20225417.png)](https://drive.google.com/file/d/18rGrXlcvQ2vE9ysSjNrjPK3yQp4oFXdF/view?usp=sharing)
 
 # Project Demo
 
