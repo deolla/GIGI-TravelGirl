@@ -2,7 +2,9 @@
 
 ## Your Goto Girl for anything Travel and Tourism.
 
-Demo ![demo-1]()
+![demo-1](./img/Screenshot%202024-04-04%20225417.png)(https://drive.google.com/file/d/18rGrXlcvQ2vE9ysSjNrjPK3yQp4oFXdF/view?usp=sharing)
+
+# Project Demo
 
 [![Video Demo](./img/Screenshot%202024-04-04%20224600.png)](https://drive.google.com/file/d/1Sc9srYqJ9mMMO_7xDGlSUKOl5TrmdSP1/view?usp=sharing)
 
@@ -16,6 +18,7 @@ Welcome to GIGI TravelGirl, your travel and tourism platform designed for travel
 
 - [GIGI TravelGirl: Travel and Tourism Website.](#gigi-travelgirl-travel-and-tourism-website)
   - [Your Goto Girl for anything Travel and Tourism.](#your-goto-girl-for-anything-travel-and-tourism)
+- [Project Demo](#project-demo)
   - [Welcome.](#welcome)
   - [Table of Contents](#table-of-contents)
 - [About GIGI-TravelGirl.](#about-gigi-travelgirl)
