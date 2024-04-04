@@ -23,9 +23,10 @@ Welcome to GIGI TravelGirl, your travel and tourism platform designed for travel
   - [Technologies](#technologies)
 - [Front-End](#front-end)
 - [Back-End](#back-end)
+- [Features](#features)
   - [Version Control and Collaboration](#version-control-and-collaboration)
   - [Installation](#installation)
-- [Features](#features)
+  - [Usage](#usage)
   - [Contributing](#contributing)
   - [License](#license)
   - [Contact Us](#contact-us)
@@ -71,7 +72,6 @@ making GIGI-TravelGirl better.
 - Responsible for flight, location and its API routes respectively.
 
 ## Technologies
-
 # Front-End
 
 - React.js: A JavaScript library for interacting and building user interfaces.
@@ -93,26 +93,6 @@ making GIGI-TravelGirl better.
 - axios: A promise-based HTTP client for the browser and server side(Nodejs).
 - Bcrypt: A cryptographic hashing library used for securely hashing passwords.
 
-## Version Control and Collaboration
-
-- GIT: Distributed version control system.
-- GITHUB: Web-based platform for version control and collaboration.
-
-## Installation
-
-![Installation](https://media.tenor.com/r3XdvPsAV3kAAAAC/despicable-me-minions.gif)
-
-Follow these steps to setup GIGI-TravelGirl locally on your server. For developers interested in contributing to the project or exploring the codebase, follow these steps:
-
-1. Clone the repository: `git clone [repository-url]`
-   - Open the terminal and run:
-   - ```
-     git clone https://github.com/deolla/GIGI-TravelGirl
-     ```
-1. Install dependencies: `npm install`
-1. Set up environment variables: Create a `.env` file and configure necessary environment variables.
-1. Run the development server: `npm run dev`
-
 # Features
 
 ![Features](./img/Travel-website-features.webp)
@@ -131,6 +111,56 @@ Our Travel and Tourism Application offers a range of features to cater to the di
 
 6. **User Profiles**: Create a personalized user profile to save favorite destinations, track past trips, and share travel experiences with others. Customize your profile settings and preferences to enhance your browsing and booking experience.
 
+## Version Control and Collaboration
+
+- GIT: Distributed version control system.
+- GITHUB: Web-based platform for version control and collaboration.
+
+## Installation
+
+![Installation](https://media.tenor.com/r3XdvPsAV3kAAAAC/despicable-me-minions.gif)
+
+Follow these steps to setup GIGI-TravelGirl locally on your server. For developers interested in contributing to the project or exploring the codebase, follow these steps:
+
+1. Clone the repository: `git clone [repository-url]`
+   - Open the terminal and run:
+   ```
+    git clone https://github.com/deolla/GIGI-TravelGirl
+   ```
+2. Install Dependencies:
+   - Navigate to the Backend directory:
+   ```
+   cd ~/Backend/ && npm install
+   ```
+3. Build Frontend:
+   - Navigate to the Frontend directory and start the build process:
+   ```
+   cd ~/Frontend/ && npm install && npm run build
+   ```
+4. Configure API Endpoints/Environments:
+   - Update API Endpoints and configurations by copying the example environment file:
+   ```
+   cd ~/Backend/ && cp .env .env
+   ```
+
+## Usage
+Welcome to GIGI-TravelGirl!! Here is a step-by-step guide on how to make the most out of the travel and tourism platform.
+
+  1. Sign Up:
+   - Create a new account by signing up on our platform. Provide the necessary information.
+  
+  2. Book a flight or an Hotel:
+   - Browse through our diverse collection of hotels or check out different flights details for more information. 
+  
+  3. Select Location:
+   - Choose your desired location for your next adventure.
+
+  4. Process Payment:
+   - Complete the seamless payment process. We support secure online payments to make your transaction hassle-free.
+
+  5. Enjoy your travels
+   - Cruise through the city or embark on an adventure—GIGI-TravelGirl is your companion for a memorable adventures.
+
 ## Contributing
 
 ![Contributions](./img/image_processing20220116-1843-ezf263.gif)
@@ -145,7 +175,11 @@ Please review our [Contribution Guidelines](./CONTRIBUTING.md) for more informat
 
 ## License
 
-GIGI TravelGirl is licensed under the [MIT License](./LICENSE).
+GIGI TravelGirl is licensed under the [MIT License](./LICENSE), making it free to use, modify and distribute. This permissive open-source license allows you the flexibility to adapt our project to your needs while promoting collaboration within the community.
+
+We encourage developers, enthusiasts, and contributors to explore, enhance, and share GIGI-TravelGirl, fostering a spirit of innovation and inclusivity.
+
+For more information, please refer to the [MIT License](./LICENSE)
 
 ## Contact Us
 
