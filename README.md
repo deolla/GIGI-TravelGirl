@@ -106,7 +106,9 @@ Follow these steps to setup GIGI-TravelGirl locally on your server. For develope
 
 1. Clone the repository: `git clone [repository-url]`
    - Open the terminal and run:
+   - ```
      git clone https://github.com/deolla/GIGI-TravelGirl
+     ```
 1. Install dependencies: `npm install`
 1. Set up environment variables: Create a `.env` file and configure necessary environment variables.
 1. Run the development server: `npm run dev`
