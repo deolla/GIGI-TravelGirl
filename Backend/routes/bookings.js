@@ -4,9 +4,14 @@ import bodyParser from "body-parser";
 import sendFlightBookingConfirmationMessage from "../middleware/emailFlight.js";
 import sendHotelBookingConfirmationMessage from "../middleware/emailHotel.js";
 // import sendFlightBookingConfirmationMessage from '../middleware/emailbooking.js'
+import uuid4 from "uuid4";
+import stripe from "stripe";
+import BookHotel from "../models/bookhotel.js";
+import User from "../models/user.js";
 import authenticate from "../middleware/authenticate.js";
 import BookHotel from "../models/bookhotel.js";
 import User from "../models/user.js";
+const stripeInstance = stripe(process.env.STRIPE_SECRET_KEY);
 
 const router = express.Router();
 // Use body-parser middleware to parse JSON bodies
