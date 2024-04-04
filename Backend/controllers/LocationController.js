@@ -67,7 +67,7 @@ const getLocations = async (req, res, next) => {
     //   console.log("--------------------------------");
     //   return res.status(200).json(dataJson);
     // }
-    console.log(url);
+    // console.log(url);
     const compUrl = url + "?" + new URLSearchParams(params);
     const response = await fetch(compUrl, options);
     const result = await response.json();
