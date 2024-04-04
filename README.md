@@ -104,42 +104,9 @@ making GIGI-TravelGirl better.
 
 Follow these steps to setup GIGI-TravelGirl locally on your server. For developers interested in contributing to the project or exploring the codebase, follow these steps:
 
-<!-- Add a button or any element you want to trigger the copy action -->
-
-<button id="copyButton">Copy Text</button>
-
-<!-- Add the text you want to copy -->
-<div id="textToCopy">
-  This is the text that will be copied.
-</div>
-
-<script>
-document.getElementById("copyButton").addEventListener("click", function() {
-  // Get the text content to copy
-  var text = document.getElementById("textToCopy").textContent;
-  
-  // Create a temporary textarea element to hold the text
-  var textarea = document.createElement("textarea");
-  textarea.value = text;
-  document.body.appendChild(textarea);
-  
-  // Select the text inside the textarea
-  textarea.select();
-  
-  // Execute the copy command
-  document.execCommand("copy");
-  
-  // Remove the temporary textarea
-  document.body.removeChild(textarea);
-  
-  // Optionally, provide visual feedback to the user
-  alert("Text copied to clipboard: " + text);
-});
-</script>
-
 1. Clone the repository: `git clone [repository-url]`
    - Open the terminal and run:
-   - [![GIGI-TravelGirl](https://github.com/deolla/GIGI-TravelGirl)]
+   - <code>https://github.com/deolla/GIGI-TravelGirl</code>
 2. Install dependencies: `npm install`
 3. Set up environment variables: Create a `.env` file and configure necessary environment variables.
 4. Run the development server: `npm run dev`
