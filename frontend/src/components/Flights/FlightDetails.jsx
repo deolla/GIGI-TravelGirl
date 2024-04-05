@@ -75,3 +75,4 @@ FlightDetails.propTypes = {
 
 
 export default FlightDetails;
+

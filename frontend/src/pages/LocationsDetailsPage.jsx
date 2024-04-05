@@ -13,4 +13,5 @@ function LocationDetailsPage({navigation}){
     </div>
 }
 
+
 export default LocationDetailsPage;

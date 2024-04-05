@@ -1,6 +1,5 @@
 import axios from "axios";
 
-
 function getCurrentUser(){
     const Token = localStorage.getItem('jwtToken');
     // console.log(Token)
