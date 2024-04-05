@@ -1,6 +1,29 @@
 import { PropTypes } from 'prop-types'
+import getFlight from "../helpers/current_flight";
+import { useState } from 'react';
+import bookFlight from '../helpers/bookFlights';
+import StripeCheckout from 'react-stripe-checkout';
 
-function FlightDetails({ from, to, departure, returnDate, amount, onBookNow }) {
+function FlightDetails({ flightId, navigation }) {
+  const curFlight = getFlight(flightId)
+  const {from, to, departureTime,arrivalTime, price} = curFlight
+  const onToken = (token) => {
+    console.log(token)
+    bookFlight({from, to, departureTime,arrivalTime, price, token})
+    navigation('/')
+  }
+
+  const handleSubmit = () => {
+    const {from, to, departureTime,arrivalTime, price} = curFlight
+    try{
+      bookFlight({from, to, departureTime,arrivalTime, price})
+      navigation('/')
+    }
+    catch{
+      console.error('error Booking Flight')
+    }
+    // Add your booking submission logic here
+  };
   return (
     <div className="flex flex-col items-center justify-center mt-10">
       <div className="bg-white p-8 rounded-lg shadow-md w-96">
@@ -8,33 +31,33 @@ function FlightDetails({ from, to, departure, returnDate, amount, onBookNow }) {
         <div className="flex justify-between mb-4">
           <div>
             <p className="text-gray-600">From</p>
-            <p className="text-lg font-semibold">{from}</p>
+            <p className="text-lg font-semibold">{curFlight.from}</p>
           </div>
           <div>
             <p className="text-gray-600">To</p>
-            <p className="text-lg font-semibold">{to}</p>
+            <p className="text-lg font-semibold">{curFlight.to}</p>
           </div>
         </div>
         <div className="flex justify-between mb-4">
           <div>
             <p className="text-gray-600">Departure</p>
-            <p className="text-lg font-semibold">{departure}</p>
+            <p className="text-lg font-semibold">{curFlight.departureTime.split('T')[0]} {curFlight.departureTime.split('T')[1]}</p>
           </div>
           <div>
-            <p className="text-gray-600">Return</p>
-            <p className="text-lg font-semibold">{returnDate}</p>
+            <p className="text-gray-600">Arrival</p>
+            <p className="text-lg font-semibold">{curFlight.arrivalTime.split('T')[0]} {curFlight.arrivalTime.split('T')[1]}</p>
           </div>
         </div>
         <div className="mb-4">
           <p className="text-gray-600">Amount</p>
-          <p className="text-lg font-semibold">{amount}</p>
+          <p className="text-lg font-semibold">${curFlight.price}</p>
         </div>
-        <button
-          className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-          onClick={onBookNow}
-        >
-          Book Now
-        </button>
+        <StripeCheckout
+                    amount={parseInt(price) * 100}
+                    currency='USD'
+                    token={onToken}
+                    stripeKey="pk_test_51P145ZCGlD81jPCTGNnfglg2PEYvgWp6puXhtCyTY6yripd0dO6SYiAXtx7Ar4SpiqnvDxXXZv1g7523QhfvUVBC00AmDqXutX"
+          />
       </div>
     </div>
   );

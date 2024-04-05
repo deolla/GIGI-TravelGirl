@@ -10,7 +10,7 @@ function User() {
       // username: '',
       // useremail: '',
       phoneNumber: '+234808764',
-      recentTrips: ['Trip 1', 'Trip 2', 'Trip 3'], 
+      flights: [], 
     });
 
     const handlePasswordChange = () => {
@@ -36,7 +36,7 @@ function User() {
         
         // email = response.data.email
         // name = response.data.username
-        setUser({...user,username: response.data.username, useremail: response.data.email})
+        setUser({...user,username: response.data.username, useremail: response.data.email, flights: response.data.flights})
       }).catch(err => console.log(err));
     })
     const navigation = useNavigate()
@@ -55,8 +55,8 @@ function User() {
       <div className="mt-8">
         <h3 className="text-lg font-semibold">Recent Trips</h3>
         <ul className="mt-2">
-          {user.recentTrips.map((trip, index) => (
-            <li key={index} className="text-gray-700">{trip}</li>
+          {user.flights.map((trip, index) => (
+            <li key={index} className="text-gray-700">{`from ${trip.from} to ${trip.to} on ${trip.departureTime.split('T')[0]}`}</li>
           ))}
         </ul>
       </div>

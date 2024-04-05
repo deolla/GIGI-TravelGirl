@@ -5,7 +5,8 @@ import 'aos/dist/aos.css';
 import { useEffect } from "react";
 import axios from "axios";
 import FlightTabs from './FlightTabs'
-function SearchBar() {    
+import LogoutFunc from "../Authentication/Logout";
+function SearchBar({navigation}) {    
 
     const [budgetValue, setBudgetvalue] = useState(50);
     const [apiData, setApiData] = useState([]);
@@ -31,18 +32,16 @@ useEffect(() => {
     });
   };
 
-
-
   useEffect(() => {
     // Load data from local storage when the component mounts
-    const savedData = localStorage.getItem('cardsData');
+    const savedData = sessionStorage.getItem('cardsData');
     if (savedData) {setApiData(JSON.parse(savedData));}
   
       // Function to handle beforeunload event
 
   const handleBeforeUnload = () => {
     // Remove data from local storage when the user leaves the page
-        localStorage.removeItem('cardsData');
+        sessionStorage.removeItem('cardsData');
     };
     // Add event listener to handle beforeunload event
     window.addEventListener('beforeunload', handleBeforeUnload);
@@ -66,13 +65,17 @@ useEffect(() => {
           }})
         .then(response => {
             if (response.status === 200) {
-                localStorage.setItem('cardsData',JSON.stringify(response.data))
+                sessionStorage.setItem('cardsData',JSON.stringify(response.data))
                 setApiData(response.data)
                 console.log(response.data)
-            }else{
+            }
+            else{
                 console.error('failed to get flight data' );
             }
         }).catch (error =>{
+            if (error.response.status === 403) {
+                LogoutFunc(navigation)
+            }
            console.error('error with flight data', error);
         })
         setFormData({

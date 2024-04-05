@@ -1,5 +1,6 @@
 // import { useNavigate } from "react-router-dom"
 import axios from "axios"
+// import { useNavigate } from "react-router-dom"
 function LogoutFunc(navigation){
     // const navigation = useNavigate()
     axios.get('http://localhost:5000/api/logout', {  headers: {
