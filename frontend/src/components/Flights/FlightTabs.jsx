@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-
+import {Link} from 'react-router-dom'
 function FlightTabs({flight}) {
     function formatTime(timeString) {
         const date = new Date(timeString);
@@ -49,7 +49,9 @@ function FlightTabs({flight}) {
             <div className='flex flex-col justify-center'>
                 <p className='text-lg'>${flight.price}</p>
                 <div className='flex'>
-                    <button type="submit" onClick={() => handleRedirect(flight.url)} className='p-2 rounded-md bg-blue-500 text-white text-sm self-center'>book flight</button>
+                    <Link to={'/flight/' + flight.id} >
+                    <button type="submit" className='p-2 rounded-md bg-blue-500 text-white text-sm self-center'>book flight</button>
+                    </Link>
                 </div>
             </div>
         </div> 

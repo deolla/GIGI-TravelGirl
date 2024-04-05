@@ -9,7 +9,7 @@ function FlightsPage({navigate}){
     if (!isLoggedIn) return null
     return (
     <div className='pt-14 mt-14 m-8'>
-        <SearchBar/>
+        <SearchBar navigation={navigate}/>
         {/* <GetFlights/> */}
     </div>)
 }

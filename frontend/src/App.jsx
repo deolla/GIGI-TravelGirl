@@ -5,16 +5,17 @@ import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import Locations from './pages/Locations';
 import FlightsPage from './pages/FlightBooking';
+import FlightDetailsPage from './pages/FlightDetails';
 import SignupPage from './pages/SignupPage';
 import LoginPage from './pages/LoginPage';
 // import LocationsDetails from './components/Locations/LocationsDetails';
 import SearchResult from './pages/SearchResult';
 import UserPage from './pages/UserPage';
 import LocationDetailsPage from './pages/LocationsDetailsPage';
-import getCurrentUser from './components/helpers/current_user';
+// import getCurrentUser from './components/helpers/current_user';
 // import React from 'react';
 // import PageNotFound from './pages/PageNotFound';
-import axios from 'axios';
+// import axios from 'axios';
 
 function App() {
 
@@ -33,8 +34,6 @@ function App() {
   const navigate = useNavigate()
   
   // console.log(Token)
-
-
 
   function showPosition(position) {
     const latitude = position.coords.latitude;
@@ -68,19 +67,6 @@ function App() {
   }
 
   getLocation()
-  useEffect( () => {
-    const Tok = localStorage.getItem('jwtToken')
-    axios.get('http://localhost:5000/location', { params: {location: `lagos`},  headers: {
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*',
-      'Authorization': `Bearer ${Tok}`
-        }}).then(response => {
-          if (response.status === 200) {
-            console.log(response.data)
-            localStorage.setItem('locationsData', JSON.stringify(response.data.results) || [{}])
-          }
-        })
-  }, [Token])
 
 
   return (
@@ -88,13 +74,14 @@ function App() {
     <Routes>
       <Route path="/" element={<AppLayout navigation={navigate}/>}>
           <Route index element={<HomePage />} />
-          <Route path="/locations/:id" element={<LocationDetailsPage />} />
-          <Route path="/searchresult" element={<SearchResult />} />
+          <Route path="/locations/:id" element={<LocationDetailsPage navigation={navigate} />} />
+          <Route path="/searchresult/:place" element={<SearchResult />} />
           <Route path="/locations" element={<Locations navigate={navigate}/>} />
           <Route path="/about" element={<AboutPage />} />
           <Route path='/login' element={<LoginPage isLoggedIn={isLoggedIn} setLoggedIn={setIsLoggedIn} setToken={setToken} />} />
           <Route path='/signup' element={<SignupPage />} />
           <Route path="/flight" element={<FlightsPage navigate={navigate}/>} />
+          <Route path="/flight/:id" element={<FlightDetailsPage navigate={navigate}/>} />          
           <Route path="/user" element={<UserPage navigate={navigate} Token={Token}/>} />
           {/* {ProtectedRoute('/flight', <FlightsPage/>)}          */}
           {/* <Route path="*" element={<PageNotFound />} />  */}
@@ -103,5 +90,6 @@ function App() {
     
   )
 }
+
 
 export default App

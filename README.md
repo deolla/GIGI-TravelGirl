@@ -1,21 +1,104 @@
-# GIGI TravelGirl
+# GIGI TravelGirl: Travel and Tourism Website.
+
+## Your Goto Girl for anything Travel and Tourism.
+
+[![demo-1](./img/Screenshot%202024-04-04%20225417.png)](https://drive.google.com/file/d/18rGrXlcvQ2vE9ysSjNrjPK3yQp4oFXdF/view?usp=sharing)
+
+# Project Demo
+
+[![Video Demo](./img/Screenshot%202024-04-04%20224600.png)](https://drive.google.com/file/d/1Sc9srYqJ9mMMO_7xDGlSUKOl5TrmdSP1/view?usp=sharing)
+
+## Welcome.
 
 ![GIGI TAVELGIRL](./img/IMG-20240324-WA0011.jpg)
 
-Welcome to our GIGI TravelGirl Travel and Tourism Application! This Application is designed to provide users with a comprehensive platform for exploring and planning their travel adventures across various destinations. Whether you're seeking inspiration for your next trip, researching travel tips, or booking accommodations and activities, our website aims to make your travel experience enjoyable and hassle-free.
+Welcome to GIGI TravelGirl, your travel and tourism platform designed for travellers, explorer and tourist seeking ultimate travelling experience, adventures and exploration, Whether you're embarking on an adventure or you want to explore a new country GIGI-TravelGirl is here to elevates your travels😉.
 
 ## Table of Contents
 
-- [GIGI TravelGirl](#gigi-travelgirl)
+- [GIGI TravelGirl: Travel and Tourism Website.](#gigi-travelgirl-travel-and-tourism-website)
+  - [Your Goto Girl for anything Travel and Tourism.](#your-goto-girl-for-anything-travel-and-tourism)
+- [Project Demo](#project-demo)
+  - [Welcome.](#welcome)
   - [Table of Contents](#table-of-contents)
-  - [Features](#features)
-  - [Technologies Used](#technologies-used)
-  - [Getting Started](#getting-started)
+- [About GIGI-TravelGirl.](#about-gigi-travelgirl)
+  - [Team and Roles](#team-and-roles)
+  - [Technologies](#technologies)
+- [Front-End](#front-end)
+- [Back-End](#back-end)
+- [Features](#features)
+  - [Version Control and Collaboration](#version-control-and-collaboration)
+  - [Installation](#installation)
+  - [Usage](#usage)
   - [Contributing](#contributing)
   - [License](#license)
+- [Screenshots](#screenshots)
   - [Contact Us](#contact-us)
 
-## Features
+# About GIGI-TravelGirl.
+
+GIGI-TravelGirl offers a seamless, flexible, and user-friendly interface for travel and tourism. This README file includes all of the features, guides, insights, technologies and how you can contribute to
+making GIGI-TravelGirl better.
+
+## Team and Roles
+
+**Adeosun Oluwaseyi(Back-end Developer)**
+**Role**: Back-end Developer focuses on Backend.
+**Contributions**:
+
+- Setup Database and configuration of the database using express and mongodb.
+- Creation of some of the data models like user, review, bookhotel e.t.c using mongoose.
+- Implementation of different functionalities like Sign-in/Google Sign-in Authentication, diffrent functionality routes, forgetpassword functionality, email authentication etc.
+- Backend development using nodejs, mongoose and mongodb
+- Integration of Stripe as payment processing.
+- Contributed to the API and backend design.
+  Contributed to the data model and database architecture.
+
+**Osi Kemebradikumo(Front-End Dveloper)**
+**Role**: Front-End Dveloper focuses on the front-end.
+**Contributions:**
+
+- Design and creation of an engaging user-friendly-interface.
+- Utilised React and vit for the front-end
+- Contributed to the overall design and visual appeal of the platform.
+- Created the logo, selected colors, and designed some pages.
+- Development of the user profile and dashboard, prioritizing user experience.
+- Implementation of profile settings for enhanced user customization.
+
+**Kumdan Nandom Job(FullStack Developer)**
+**Role**: FullStack Developer focused on the backend and front-end.
+**Contributions:**
+
+- Contributed to the data models, database architecture and API functionalities.
+- Responsible for the connectivity of both the backend and front-end using axios.
+- Contributed to the flight booking page .......
+- Implementation of Redis integration for Storing session data in Redis allows for fast read and write operations.
+- Responsible for flight, location and its API routes respectively.
+
+## Technologies
+
+# Front-End
+
+- React.js: A JavaScript library for interacting and building user interfaces.
+- Vite.js: A fast, modern frontend build tools.
+- Axios: A promise-based HTTP client for the browser and server side(Nodejs).
+- Slider: A modern slider used for creating interactive and responsive carousels.
+- AOS: A JavaScript library that allows animation elements on webpage.
+
+# Back-End
+
+- Node.js: A JavaScript runtime environment that allows developers to build server-side and network-side applications.
+- Mongoose: A Object Data Model(ODM) library for MongoDB and Node.js.
+- Express: A JavaScript framework for web applications and APIs.
+- JWT & Passport: JWT (JSON Web Tokens) and Passport are both authentication mechanisms.
+- Google Oauth: Integration for authentication using Google accounts.
+- Nodemailer: A module for Nodejs applications to send and receive mails.
+- Stripe: A payment gateway for online transactions.
+- MongoDB: A NoSQL database that is open source. It use for developing scalable applications with evolving data schemas.
+- axios: A promise-based HTTP client for the browser and server side(Nodejs).
+- Bcrypt: A cryptographic hashing library used for securely hashing passwords.
+
+# Features
 
 ![Features](./img/Travel-website-features.webp)
 
@@ -33,34 +116,65 @@ Our Travel and Tourism Application offers a range of features to cater to the di
 
 6. **User Profiles**: Create a personalized user profile to save favorite destinations, track past trips, and share travel experiences with others. Customize your profile settings and preferences to enhance your browsing and booking experience.
 
-## Technologies Used
+## Version Control and Collaboration
 
-![Technologies](./img/blog-13-web-dev-technologies-in-post-1.png)
+- GIT: Distributed version control system.
+- GITHUB: Web-based platform for version control and collaboration.
 
-Our Travel and Tourism Application is built using modern web technologies to ensure a seamless and intuitive user experience:
+## Installation
 
-- **Frontend**: React.js Tai
-- **Backend**: Node.js, Express.js, MongoDB
-- **Authentication**: JSON Web Tokens (JWT), bcrypt
-- **API Integrations**: Google Maps API
-- **Deployment**: Heroku, AWS, Docker
+![Installation](https://media.tenor.com/r3XdvPsAV3kAAAAC/despicable-me-minions.gif)
 
-## Getting Started
-
-![Getting started](https://media.tenor.com/r3XdvPsAV3kAAAAC/despicable-me-minions.gif)
-
-To get started with our Travel and Tourism Application, simply visit [website-url] and create a user account. Once logged in, you can start exploring destinations, planning your trips, and booking accommodations and activities.
-
-For developers interested in contributing to the project or exploring the codebase, follow these steps:
+Follow these steps to setup GIGI-TravelGirl locally on your server. For developers interested in contributing to the project or exploring the codebase, follow these steps:
 
 1. Clone the repository: `git clone [repository-url]`
-2. Install dependencies: `npm install`
-3. Set up environment variables: Create a `.env` file and configure necessary environment variables.
-4. Run the development server: `npm run dev`
+   - Open the terminal and run:
+   ```
+    git clone https://github.com/deolla/GIGI-TravelGirl
+   ```
+2. Install Dependencies:
+   - Navigate to the Backend directory:
+   ```
+   cd ~/Backend/ && npm install
+   ```
+3. Build Frontend:
+   - Navigate to the Frontend directory and start the build process:
+   ```
+   cd ~/Frontend/ && npm install && npm run build
+   ```
+4. Configure API Endpoints/Environments:
+   - Update API Endpoints and configurations by copying the example environment file:
+   ```
+   cd ~/Backend/ && cp .env .env
+   ```
+
+## Usage
+
+Welcome to GIGI-TravelGirl!! Here is a step-by-step guide on how to make the most out of the travel and tourism platform.
+
+1. Sign Up:
+
+   - Create a new account by signing up on our platform. Provide the necessary information.
+
+2. Book a flight or an Hotel:
+
+   - Browse through our diverse collection of hotels or check out different flights details for more information.
+
+3. Select Location:
+
+   - Choose your desired location for your next adventure.
+
+4. Process Payment:
+
+   - Complete the seamless payment process. We support secure online payments to make your transaction hassle-free.
+
+5. Enjoy your travels
+
+   - Cruise through the city or embark on an adventure—GIGI-TravelGirl is your companion for a memorable adventures.
 
 ## Contributing
 
-![Contributions](./img/image_processing20220116-1843-ezf263.gif)
+![Contributions](./img/image.png)
 
 We welcome contributions from the community to help improve and enhance our Travel and Tourism Application. Whether you're a developer, designer, or travel enthusiast, there are many ways to contribute:
 
@@ -72,7 +186,17 @@ Please review our [Contribution Guidelines](./CONTRIBUTING.md) for more informat
 
 ## License
 
-GIGI TravelGirl is licensed under the [MIT License](./LICENSE).
+GIGI TravelGirl is licensed under the [MIT License](./LICENSE), making it free to use, modify and distribute. This permissive open-source license allows you the flexibility to adapt our project to your needs while promoting collaboration within the community.
+
+We encourage developers, enthusiasts, and contributors to explore, enhance, and share GIGI-TravelGirl, fostering a spirit of innovation and inclusivity.
+
+For more information, please refer to the [MIT License](./LICENSE)
+
+# Screenshots
+
+![img](./img/WhatsApp%20Image%202024-04-04%20at%2021.49.35_b6d8f309.jpg)
+
+![img](./img/WhatsApp%20Image%202024-04-04%20at%2021.48.20_cf182831.jpg)
 
 ## Contact Us
 
