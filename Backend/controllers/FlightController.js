@@ -49,8 +49,10 @@ class FlightController {
       );
       const response = await ans.json();
       // console.log(response.data.listings);
+      // console.log(response.data.listings);
       const data = response.data.listings.map((x) => {
         return {
+          id: x.id,
           airline: x.airlines[0].name,
           logo: x.airlines[0].image,
           arrivalTime: x.slices[0].segments[0].arrivalInfo.time.dateTime,

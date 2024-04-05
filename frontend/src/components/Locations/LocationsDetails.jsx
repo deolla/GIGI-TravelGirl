@@ -8,8 +8,10 @@ import { useEffect, useState, useRef } from 'react';
 import getLocation from '../helpers/currentLocation';
 import  getLocalLocation from '../helpers/localLocation';
 import kw from '../../assets/nigeria/kwara.jpg'
+import bookHotel from '../helpers/bookHotel';
+import StripeCheckout from 'react-stripe-checkout';
 
-function LocationsDetails({locationId}) {
+function LocationsDetails({locationId, navigation}) {
   // localStorage.removeItem('current_location')  // Placeholder
   // const locationDetails = {
   //   title: 'Mock Location Title',
@@ -36,47 +38,15 @@ function LocationsDetails({locationId}) {
   //       })
   //   },[locationId, locationDetails])
   // const locationDetails = getLocation(locationId)
-
-    const handleRedirect = (url) => {
-      window.open(url, '_blank');
-    };
+  const onToken = (token) => {
+    console.log(token)
+    bookHotel({checkinDate,checkoutDate, totalPrice: price.total, placeName: name, token})
+    navigation('/')
+  }
       // const locationDetails = JSON.parse(localStorage.getItem('current_location'))
     const curLoc = getLocalLocation(locationId);
     const {images, city, address, previewAmenities,hostThumbnail, price, rating,reviewsCount, name} = curLoc
-    const icons = {
-      'Heating': FaFire, 
-      'Wifi': IoWifiSharp, 
-      "Air conditioning": TbAirConditioning, 
-      'Free parking': FaCarAlt,
-      'Pool': FaSwimmingPool
-    }
-    const GetIcon = (iconT) =>{
-      switch (iconT) {
-        case 'Heating':
-          console(iconT)
-          return FaFire
 
-        case 'Wifi':
-          console(iconT)
-          return IoWifiSharp
-
-        case 'Air conditioning':
-          console(iconT)
-          return TbAirConditioning
-
-        case 'Free parking':
-          console(iconT)
-          return TbAirConditioning
-
-        case 'Pool':
-          console(iconT)
-          return TbAirConditioning
-            
-        
-        default:
-          return false;
-      }
-    }
       const [checkinDate, setCheckinDate] = useState('');
       const [checkoutDate, setCheckoutDate] = useState('');
     
@@ -90,6 +60,13 @@ function LocationsDetails({locationId}) {
     
       const handleSubmit = (e) => {
         e.preventDefault();
+        try{
+          bookHotel({checkinDate,checkoutDate, totalPrice: price.total, placeName: name})
+          navigation('/')
+        }
+        catch{
+          console.error('error Booking app')
+        }
         // Add your booking submission logic here
       };
 
@@ -124,7 +101,7 @@ function LocationsDetails({locationId}) {
               })}
               <div className=" mx-auto mt-10">
                 <h2 className="text-2xl font-bold mb-4">Book Your Stay</h2>
-                <form onSubmit={handleSubmit}>
+                {/* <form onSubmit={handleSubmit}> */}
                   <div className="mb-4">
                     <label htmlFor="checkin" className=" text-gray-700 mb-2 mr-2">Check-In</label>
                     <input type="date" id="checkin" className="form-input px-4 py-2 ring-2 focus:outline-none rounded border-blue-600" value={checkinDate} onChange={handleCheckinChange} required />
@@ -134,13 +111,13 @@ function LocationsDetails({locationId}) {
                     <input type="date" id="checkout" className="form-input px-4 py-2 ring-2 focus:outline-none rounded border-blue-600" value={checkoutDate} onChange={handleCheckoutChange} required />
                   </div>
 
-                  <button
-                    onClick={() => handleRedirect('google.com')}
-                    className="bg-gradient-to-r from-primary to-secondary text-white font-bold py-2 px-4 rounded'"
-                    >
-                    Book Now
-                  </button>
-                </form>
+                  <StripeCheckout
+                    amount={parseInt(price) * 100}
+                    currency='USD'
+                    token={onToken}
+                    stripeKey="pk_test_51P145ZCGlD81jPCTGNnfglg2PEYvgWp6puXhtCyTY6yripd0dO6SYiAXtx7Ar4SpiqnvDxXXZv1g7523QhfvUVBC00AmDqXutX"
+                  />
+                {/* </form> */}
               </div>
             </div>
             <div className=" transition-all duration-500 hover:shadow-xl shadow-lg cursor-pointer p-10 rounded-2xl ">
