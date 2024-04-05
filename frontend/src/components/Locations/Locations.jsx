@@ -26,7 +26,7 @@ function Locations() {
         <div className="container">
             <h1 className=" font-bold py-2 pl-2 my-8 text-3xl border-l-8
              border-secondary/50" data-aos="fade-up">
-                Upcoming Vacations</h1>
+                Popular Locations Near You</h1>
                 <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4'>
                     {
                         locationData.map((item, index) => (

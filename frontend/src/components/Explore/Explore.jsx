@@ -26,13 +26,8 @@ function Explore() {
                     </div>
                     {/* text section */}
                     <div>
-                        <h1 data-aos='fade-up' className='text-3xl font-bold sm:text-4xl'>Explore Africa with GIGI-TravelGirl</h1>
-                        <p data-aos='fade-up' className='text-gray-500 text-sm tracking-wide leading-8'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque nul corrupti! Officia?
-                        Recusandae error magni, accusantium, sapiente nam reprehenderit perferendis tempore voluptas cum at est a eligendi odit iure qui consequatur, tenetur sed voluptate quod possimus? Quo, suscipit! Eaque ex assumenda ad!
-                        Velit, aperiam. Corporis, quis modi sunt ratione nisi distinctio odit et possimus! Laboriosam debitis nesciunt, quibusdam obcaecati placeat non laborum velit eum, voluptatem omnis modi quis inventore, repellat reiciendis. Expedita?
-                        Laudantium facilis pariatur quaerat corporis! Est dolore nihil veniam, 
-                        reprehenderit vitae repudiandae deleniti dignissimos minus optio totam ipsum quis officiis eum tempore recusandae doloribus cum facilis omnis! Cumque, consequatur temporibus.
-                        Soluta illo laboriosam vitae reprehenderit quia sit quo atque id asperiores natus exercitationem dolorem earum, alias tempore odit harum? Amet inventore at nulla atque ad fugiat!
+                        <h1 data-aos='fade-up' className='text-3xl font-bold sm:text-4xl'>Explore with GIGI-TravelGirl</h1>
+                        <p data-aos='fade-up' className='text-gray-500 text-sm tracking-wide leading-8'>Book flights, hotels and vactions with ease and within budget.
                         </p>
                         <div>
                             <div data-aos='zoom-in'>
